@@ -1,3 +1,19 @@
 body{
-	background-color: green;
+	background-color: white;
+	font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	.lego-set-pic{
+		img{
+			max-width: 250px;
+			overflow: hidden;
+		}
+	}
+	.search-button{
+		margin-left: 10px;
+	}
 }
+
+#views{
+	margin-left: 200px;
+}
+
+

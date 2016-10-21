@@ -1,4 +1,19 @@
 /* line 1, ../compass/sass/styles.scss */
 body {
-  background-color: green;
+  background-color: white;
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* line 5, ../compass/sass/styles.scss */
+body .lego-set-pic img {
+  max-width: 250px;
+  overflow: hidden;
+}
+/* line 10, ../compass/sass/styles.scss */
+body .search-button {
+  margin-left: 10px;
+}
+
+/* line 15, ../compass/sass/styles.scss */
+#views {
+  margin-left: 200px;
 }

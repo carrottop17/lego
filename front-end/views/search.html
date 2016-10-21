@@ -1,0 +1,28 @@
+<div class="pure-g">
+	<div class="pure-u-1-1">
+		<h1>Search for Lego sets</h1>
+	</div>
+	<form class="pure-form" ng-submit="getLegoSearch()">
+	    <fieldset>
+	        <legend></legend>
+
+	        <input type="text" placeholder="Lego Set" ng-model="queryString">
+
+	        <button type="submit" class="pure-button pure-button-primary search-button">Search</button>
+	    </fieldset>
+	</form>
+		
+</div>
+
+<div class="pure-g">
+		<div ng-repeat="lego in legoArray" class="pure-u-1-4 lego-set-pic">
+			<img ng-src="{{imagePath}}{{lego.set_id}}.jpg">
+			<p>{{lego.descr}}</p>
+			<p>{{lego.pieces}}</p>
+			<p>{{lego.set_id}}</p>
+			<p>{{lego.theme1}}</p>
+			<p>{{lego.theme2}}</p>
+			<p>{{lego.url}}</p>
+			<p>{{lego.year}}</p>
+		</div>
+</div>
