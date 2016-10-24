@@ -8,7 +8,7 @@ var userSchema = new Schema({
 	email: {type: String, required: true},
 	token: {type: String},
 	tokenExpDate: Date,
-	name: String,
+	sets: [{set_id: String}]
 });
 
 module.exports = mongoose.model('User', userSchema);

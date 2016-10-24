@@ -1,4 +1,4 @@
-var legoApp = angular.module("legoApp", ['ngRoute', 'ngCookies']);
+var legoApp = angular.module("legoApp", ['ngRoute', 'ngCookies', 'angularUtils.directives.dirPagination']);
 var apiPath = "http://localhost:3000";
 legoApp.controller('mainController', function($scope, $http, $location, $cookies){
 	
@@ -68,6 +68,30 @@ legoApp.controller('mainController', function($scope, $http, $location, $cookies
 		$cookies.remove('token');
 		$cookies.remove('username');
 	}
+
+	$scope.addToCollection = function(set_id){
+		console.log(set_id);
+		$http.post(apiPath + '/addToCollection', {
+			set_id: set_id,
+			token: $cookies.get('token')
+		}).then(function successCallback(response){
+			$location.path('/search');
+		}, function errorCallback(response){
+			console.log(response.data);
+		});
+	};
+
+	$scope.removeFromCollection = function(set_id){
+		console.log(set_id);
+		$http.post(apiPath + '/removeFromCollection', {
+			set_id: set_id,
+			token: $cookies.get('token')
+		}).then(function successCallback(response){
+			$location.path('/search');
+		}, function errorCallback(response){
+			console.log(response.data);
+		});
+	};
 
 });
 

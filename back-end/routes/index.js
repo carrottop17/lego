@@ -55,4 +55,34 @@ router.post('/login', function(req, res, next){
 	)
 });
 
+router.post('/addToCollection', function(req, res, next) {
+	User.update(
+		{token: req.body.token}, // Is the which.
+		{$push: {sets: req.body.set_id}},
+		{multi: true},
+		function(err, numberAffected){
+			if(numberAffected.ok == 1){
+				res.json({success: "updated"});
+			}else{
+				res.json({failure: "failedUpdate"});
+			};
+		}
+	);
+});
+
+router.post('/removeFromCollection', function(req, res, next) {
+	User.update(
+		{token: req.body.token}, // Is the which.
+		{$pull: {sets: req.body.set_id}},
+		{multi: true},
+		function(err, numberAffected){
+			if(numberAffected.ok == 1){
+				res.json({success: "updated"});
+			}else{
+				res.json({failure: "failedUpdate"});
+			};
+		}
+	);
+});
+
 module.exports = router;

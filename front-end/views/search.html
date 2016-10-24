@@ -9,14 +9,17 @@
 	        <input type="text" placeholder="Lego Set" ng-model="queryString">
 
 	        <button type="submit" class="pure-button pure-button-primary search-button">Search</button>
+
 	    </fieldset>
 	</form>
 		
 </div>
 
 <div class="pure-g">
-		<div ng-repeat="lego in legoArray" class="pure-u-1-4 lego-set-pic">
+		<div dir-paginate="lego in legoArray | orderBy : 'year' : reverse=true | itemsPerPage: 12" class="pure-u-1-4 lego-set-pic">
 			<img ng-src="{{imagePath}}{{lego.set_id}}.jpg">
+			<button class="button-success pure-button" ng-click="addToCollection(lego.set_id); show=true">Add to Collection</button>
+			<button class="button-error pure-button" ng-show="show" ng-click="removeFromCollection(lego.set_id); show=false">Remove from Collection</button>
 			<p>{{lego.descr}}</p>
 			<p>{{lego.pieces}}</p>
 			<p>{{lego.set_id}}</p>
@@ -25,4 +28,8 @@
 			<p>{{lego.url}}</p>
 			<p>{{lego.year}}</p>
 		</div>
+</div>
+
+<div class="text-center">
+     <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>
 </div>
