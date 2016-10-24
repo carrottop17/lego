@@ -11,12 +11,22 @@ legoApp.controller('mainController', function($scope, $http, $location, $cookies
 		url: rebrickableURL + $scope.queryString
 		}).then(function successFunction(searchData){
 			$scope.legoArray = searchData.data.results;
+			for (var i = 0; i < searchData.data.results.length; i++){
+				if (searchData.data.results[i].kit == 1){
+					searchData.data.results.splice(i, 1);
+				}
+			}
 			console.log(searchData);
 		},function failureFunction(searchData){
-			
+			console.log(searchData.data.results);
 		}
 	);
 	}
+
+	$scope.sort = function(keyname){
+        $scope.sortKey = keyname;   //set the sortKey to the param passed
+        $scope.reverse = !$scope.reverse; //if true make it false and vice versa
+    }
 
 	$scope.register = function(){
 		$http.post(apiPath + '/register', {
