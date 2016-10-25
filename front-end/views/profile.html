@@ -1,12 +1,21 @@
-<div class="pure-g" ng-controller="profileController">
+<div ng-init="getUserData()">
 	
 		<div class="pure-u-1-1">
 			<h1>User Profile</h1>
 		</div>
 		<div class="pure-u-1-1">
-			{{fullname}}
-			{{username}}
-			{{email}}
+			<div>Name: {{fullname}}</div>
+			<div>Username: {{username}}</div>
+			<div>Email: {{email}}</div>
+		</div>
+		<div class="pure-u-1-1">
+			<h2>Lego Sets in Collection:</h2>
+		</div>
+		<p>Sort By: </p>
+		<div class="sort-buttons">
+		   	<button class="button-success pure-button" ng-click="sort('year')">Year</button>
+		    <button class="button-success pure-button" ng-click="sort('-1*pieces')">Pieces</button>
+		    <button class="button-success pure-button" ng-click="sort('set_id')">Set ID</button>
 		</div>
 		<div dir-paginate="set in sets | orderBy : sortKey : reverse | itemsPerPage: 12" class="pure-u-1-4 lego-set-pic">
 			<img ng-src="{{imagePath}}{{set.set_id}}.jpg">
@@ -18,6 +27,10 @@
 			<p>{{set.theme2}}</p>
 			<p>{{set.url}}</p>
 			<p>{{set.year}}</p>
+		</div>
+
+		<div class="text-center">
+     		<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>
 		</div>
 	
 </div>

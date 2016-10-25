@@ -67,7 +67,6 @@ router.get('/getUserData', function(req, res, next){
 				if(document == null){
 					res.json({failure: 'badToken'});
 				}else{
-					console.log(document.sets)
 					res.json({
 						fullname: document.fullname,
 						username: document.username,

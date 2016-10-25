@@ -59,7 +59,7 @@ legoApp.controller('mainController', function($scope, $http, $location, $cookies
 			if(response.data.success == 'userfound'){
 				$cookies.put('token', response.data.token);
 				$cookies.put('username', $scope.username);
-				$location.path('/search');
+				$location.path('/profile');
 				$scope.loggedIn = true;
 				console.log(response.data.token);
 			}
@@ -92,41 +92,17 @@ legoApp.controller('mainController', function($scope, $http, $location, $cookies
 		});
 	};
 
-	$scope.removeFromCollection = function(results){
-		console.log(results);
-		$http.post(apiPath + '/removeFromCollection', {
-			results: results,
-			token: $cookies.get('token')
-		}).then(function successCallback(response){
-			$location.path('/search');
-		}, function errorCallback(response){
-			console.log(response.data);
-		});
-	};
-
-});
-
-legoApp.controller('profileController', function($scope, $http, $location, $cookies){
-
-	$scope.imagePath = 'http://rebrickable.com/img/sets-s/';
-
-	$http({
-		method: 'GET',
-		url: apiPath + '/getUserData?token=' + $cookies.get('token')
-	}).then(function successCallback(response){
-		if (response.data.failure == 'noToken' || response.data.failure == 'badToken'){
-			$location.path('/login');
-			console.log(response.data);
-		} else {
-			$scope.fullname = response.data.fullname;
-			$scope.username = response.data.username;
-			$scope.email = response.data.email;
-			$scope.sets = response.data.sets;
-			console.log(response.data.sets)
-		}
-	}, function errorCallback(response){
-		console.log(response.status);
-	});
+	// $scope.removeFromCollection = function(results){
+	// 	console.log(results);
+	// 	$http.post(apiPath + '/removeFromCollection', {
+	// 		results: results,
+	// 		token: $cookies.get('token')
+	// 	}).then(function successCallback(response){
+	// 		$location.path('/search');
+	// 	}, function errorCallback(response){
+	// 		console.log(response.data);
+	// 	});
+	// };
 
 	$scope.removeFromCollection = function(results){
 		console.log(results);
@@ -134,11 +110,30 @@ legoApp.controller('profileController', function($scope, $http, $location, $cook
 			results: results,
 			token: $cookies.get('token')
 		}).then(function successCallback(response){
-			$location.path('/profile');
+			$scope.getUserData();
 		}, function errorCallback(response){
 			console.log(response.data);
 		});
 	};
+
+	$scope.getUserData = function(){
+		$http.get(apiPath + '/getUserData?token=' + $cookies.get('token'), {
+		}).then(function successCallback(response){
+			if (response.data.failure == 'noToken' || response.data.failure == 'badToken'){
+				$location.path('/login');
+				console.log(response.data);
+			} else {
+				$scope.fullname = response.data.fullname;
+				$scope.username = response.data.username;
+				$scope.email = response.data.email;
+				$scope.sets = response.data.sets;
+				console.log(response.data.sets)
+			}
+		}, function errorCallback(response){
+			console.log(response.status);
+		});
+	};
+
 });
 
 legoApp.config(function($routeProvider){

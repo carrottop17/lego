@@ -36,8 +36,12 @@ body .button-error {
   background: #ca3c3c;
   /* this is a maroon */
 }
+/* line 30, ../compass/sass/styles.scss */
+body .sort-buttons {
+  margin-bottom: 10px;
+}
 
-/* line 32, ../compass/sass/styles.scss */
+/* line 35, ../compass/sass/styles.scss */
 #views {
   margin-left: 200px;
 }
