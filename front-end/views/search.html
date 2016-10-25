@@ -27,6 +27,7 @@
 			<img ng-src="{{imagePath}}{{lego.set_id}}.jpg">
 			<button class="button-success pure-button" ng-click="addToCollection(lego); show=true">Add to Collection</button>
 			<button class="button-error pure-button" ng-show="show" ng-click="removeFromCollection(lego); show=false">Remove from Collection</button>
+			<a href="#/setparts"><button class="button-secondary pure-button" ng-click='Data.Set_id = lego.set_id'>Parts List</button></a>
 			<p>{{lego.descr}}</p>
 			<p>{{lego.pieces}}</p>
 			<p>{{lego.set_id}}</p>

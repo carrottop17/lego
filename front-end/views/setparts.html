@@ -1,0 +1,31 @@
+<div ng-controller="piecesController" ng-init="getLegoPartsSearch(Data.Set_id)">
+	
+		<div class="pure-u-1-1">
+			<h1>Set Parts</h1>
+		</div>
+		
+		<div class="pure-u-1-1">
+			<h2>Parts in Set: {{Data.Set_id}}</h2>
+		</div>
+		<p>Sort By: </p>
+		<div class="sort-buttons">
+		   	<button class="button-success pure-button" ng-click="sort('year')">Year</button>
+		    <button class="button-success pure-button" ng-click="sort('-1*pieces')">Pieces</button>
+		    <button class="button-success pure-button" ng-click="sort('set_id')">Set ID</button>
+		</div>
+		<div dir-paginate="part in legoPartsArray | orderBy : sortKey : reverse | itemsPerPage: 48" class="pure-u-1-6 part-pic">
+			<img ng-src="{{partImagePath}}{{part.element_id}}.jpg">
+			<!-- <button class="button-error pure-button" ng-click="removeFromCollection(set)">Remove from Collection</button>
+			<button class="button-secondary pure-button" ng-click="getLegoPartsSearch(set.set_id)">Parts List</button> -->
+			<p>Part Id: {{part.part_id}}</p>
+			<p>Part Quantity: {{part.qty}}</p>
+			<p>Part Name: {{part.part_name}}</p>
+			<p>Part Color: {{part.color_name}}</p>
+			<p>Part Element Id: {{part.element_id}}</p>
+		</div>
+
+		<div class="text-center">
+     		<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>
+		</div>
+	
+</div>

@@ -8,11 +8,16 @@ body .lego-set-pic img {
   max-width: 250px;
   overflow: hidden;
 }
-/* line 10, ../compass/sass/styles.scss */
+/* line 11, ../compass/sass/styles.scss */
+body .part-pic img {
+  max-width: 150px;
+  overflow: hidden;
+}
+/* line 16, ../compass/sass/styles.scss */
 body .search-button {
   margin-left: 10px;
 }
-/* line 13, ../compass/sass/styles.scss */
+/* line 19, ../compass/sass/styles.scss */
 body .button-success,
 body .button-error,
 body .button-warning,
@@ -21,27 +26,27 @@ body .button-secondary {
   border-radius: 4px;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
-/* line 21, ../compass/sass/styles.scss */
+/* line 27, ../compass/sass/styles.scss */
 body .button-success {
   background: #1cb841;
   /* this is a green */
 }
-/* line 24, ../compass/sass/styles.scss */
+/* line 30, ../compass/sass/styles.scss */
 body .button-warning {
   background: #df7514;
   /* this is an orange */
 }
-/* line 27, ../compass/sass/styles.scss */
+/* line 33, ../compass/sass/styles.scss */
 body .button-error {
   background: #ca3c3c;
   /* this is a maroon */
 }
-/* line 30, ../compass/sass/styles.scss */
+/* line 36, ../compass/sass/styles.scss */
 body .sort-buttons {
   margin-bottom: 10px;
 }
 
-/* line 35, ../compass/sass/styles.scss */
+/* line 41, ../compass/sass/styles.scss */
 #views {
   margin-left: 200px;
 }

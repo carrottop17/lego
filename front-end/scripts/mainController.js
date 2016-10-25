@@ -1,10 +1,20 @@
 var legoApp = angular.module("legoApp", ['ngRoute', 'ngCookies', 'angularUtils.directives.dirPagination']);
 var apiPath = "http://localhost:3000";
 var rebrickableURL = 'https://rebrickable.com/api/search?key=wqq5lDBA3N&format=json&type=S&query=';
-legoApp.controller('mainController', function($scope, $http, $location, $cookies){
-	
+var rebrickablePartsURL = 'https://rebrickable.com/api/get_set_parts?key=wqq5lDBA3N&format=json&type=S&set='
+
+legoApp.factory('Data', function(){
+	return { Set_id: '' };
+});
+
+legoApp.controller('mainController', function($scope, $rootScope, $http, $location, $cookies, Data){
 	
 	$scope.imagePath = 'http://rebrickable.com/img/sets-s/';
+	$scope.Data = Data;
+
+	$scope.getSetId = function(set_id){
+		console.log(set_id);
+	}
 
 	$scope.getLegoSearch = function(){
 		$http({
@@ -136,6 +146,25 @@ legoApp.controller('mainController', function($scope, $http, $location, $cookies
 
 });
 
+legoApp.controller('piecesController', function($scope, $rootScope, $http, $location, $cookies, Data){
+	$scope.Data = Data;
+	$scope.partImagePath = 'http://rebrickable.com/img/pieces/elements/';
+
+	$scope.getLegoPartsSearch = function(set_id){
+		$http({
+		method: 'GET',
+		url: rebrickablePartsURL + set_id
+		}).then(function successFunction(searchData){
+			$scope.legoPartsArray = searchData.data[0].parts;
+			console.log(searchData);
+		},function failureFunction(searchData){
+			console.log(searchData.data.results);
+		}
+	);
+	}
+
+});
+
 legoApp.config(function($routeProvider){
 	$routeProvider.when('/',{
 		templateUrl: 'views/main.html',
@@ -155,6 +184,10 @@ legoApp.config(function($routeProvider){
 	})
 	.when('/profile',{
 		templateUrl: 'views/profile.html',
+		controller: 'mainController'
+	})
+	.when('/setparts',{
+		templateUrl: 'views/setparts.html',
 		controller: 'mainController'
 	})
 });
