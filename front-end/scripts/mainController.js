@@ -1,8 +1,9 @@
 var legoApp = angular.module("legoApp", ['ngRoute', 'ngCookies', 'angularUtils.directives.dirPagination']);
 var apiPath = "http://localhost:3000";
+var rebrickableURL = 'https://rebrickable.com/api/search?key=wqq5lDBA3N&format=json&type=S&query=';
 legoApp.controller('mainController', function($scope, $http, $location, $cookies){
 	
-	var rebrickableURL = 'https://rebrickable.com/api/search?key=wqq5lDBA3N&format=json&type=S&query=';
+	
 	$scope.imagePath = 'http://rebrickable.com/img/sets-s/';
 
 	$scope.getLegoSearch = function(){
@@ -79,10 +80,10 @@ legoApp.controller('mainController', function($scope, $http, $location, $cookies
 		$cookies.remove('username');
 	}
 
-	$scope.addToCollection = function(set_id){
-		console.log(set_id);
+	$scope.addToCollection = function(results){
+		console.log(results);
 		$http.post(apiPath + '/addToCollection', {
-			set_id: set_id,
+			results: results,
 			token: $cookies.get('token')
 		}).then(function successCallback(response){
 			$location.path('/search');
@@ -91,10 +92,10 @@ legoApp.controller('mainController', function($scope, $http, $location, $cookies
 		});
 	};
 
-	$scope.removeFromCollection = function(set_id){
-		console.log(set_id);
+	$scope.removeFromCollection = function(results){
+		console.log(results);
 		$http.post(apiPath + '/removeFromCollection', {
-			set_id: set_id,
+			results: results,
 			token: $cookies.get('token')
 		}).then(function successCallback(response){
 			$location.path('/search');
@@ -103,6 +104,41 @@ legoApp.controller('mainController', function($scope, $http, $location, $cookies
 		});
 	};
 
+});
+
+legoApp.controller('profileController', function($scope, $http, $location, $cookies){
+
+	$scope.imagePath = 'http://rebrickable.com/img/sets-s/';
+
+	$http({
+		method: 'GET',
+		url: apiPath + '/getUserData?token=' + $cookies.get('token')
+	}).then(function successCallback(response){
+		if (response.data.failure == 'noToken' || response.data.failure == 'badToken'){
+			$location.path('/login');
+			console.log(response.data);
+		} else {
+			$scope.fullname = response.data.fullname;
+			$scope.username = response.data.username;
+			$scope.email = response.data.email;
+			$scope.sets = response.data.sets;
+			console.log(response.data.sets)
+		}
+	}, function errorCallback(response){
+		console.log(response.status);
+	});
+
+	$scope.removeFromCollection = function(results){
+		console.log(results);
+		$http.post(apiPath + '/removeFromCollection', {
+			results: results,
+			token: $cookies.get('token')
+		}).then(function successCallback(response){
+			$location.path('/profile');
+		}, function errorCallback(response){
+			console.log(response.data);
+		});
+	};
 });
 
 legoApp.config(function($routeProvider){
@@ -120,6 +156,10 @@ legoApp.config(function($routeProvider){
 	})
 	.when('/search',{
 		templateUrl: 'views/search.html',
+		controller: 'mainController'
+	})
+	.when('/profile',{
+		templateUrl: 'views/profile.html',
 		controller: 'mainController'
 	})
 });

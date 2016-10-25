@@ -1,0 +1,23 @@
+<div class="pure-g" ng-controller="profileController">
+	
+		<div class="pure-u-1-1">
+			<h1>User Profile</h1>
+		</div>
+		<div class="pure-u-1-1">
+			{{fullname}}
+			{{username}}
+			{{email}}
+		</div>
+		<div dir-paginate="set in sets | orderBy : sortKey : reverse | itemsPerPage: 12" class="pure-u-1-4 lego-set-pic">
+			<img ng-src="{{imagePath}}{{set.set_id}}.jpg">
+			<button class="button-error pure-button" ng-click="removeFromCollection(set)">Remove from Collection</button>
+			<p>{{set.descr}}</p>
+			<p>{{set.pieces}}</p>
+			<p>{{set.set_id}}</p>
+			<p>{{set.theme1}}</p>
+			<p>{{set.theme2}}</p>
+			<p>{{set.url}}</p>
+			<p>{{set.year}}</p>
+		</div>
+	
+</div>

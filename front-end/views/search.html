@@ -25,8 +25,8 @@
 <div class="pure-g">
 		<div dir-paginate="lego in legoArray | orderBy : sortKey : reverse | itemsPerPage: 12" class="pure-u-1-4 lego-set-pic">
 			<img ng-src="{{imagePath}}{{lego.set_id}}.jpg">
-			<button class="button-success pure-button" ng-click="addToCollection(lego.set_id); show=true">Add to Collection</button>
-			<button class="button-error pure-button" ng-show="show" ng-click="removeFromCollection(lego.set_id); show=false">Remove from Collection</button>
+			<button class="button-success pure-button" ng-click="addToCollection(lego); show=true">Add to Collection</button>
+			<button class="button-error pure-button" ng-show="show" ng-click="removeFromCollection(lego); show=false">Remove from Collection</button>
 			<p>{{lego.descr}}</p>
 			<p>{{lego.pieces}}</p>
 			<p>{{lego.set_id}}</p>

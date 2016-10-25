@@ -55,10 +55,36 @@ router.post('/login', function(req, res, next){
 	)
 });
 
+router.get('/getUserData', function(req, res, next){
+	var userToken = req.query.token;
+	if(userToken == undefined){
+		//No token was supplied
+		res.json({failure: "noToken"});
+	}else{
+		User.findOne(
+			{token: userToken},
+			function(error, document){
+				if(document == null){
+					res.json({failure: 'badToken'});
+				}else{
+					console.log(document.sets)
+					res.json({
+						fullname: document.fullname,
+						username: document.username,
+						email: document.email,
+						token: document.token,
+						sets: document.sets
+					});
+				}
+			}
+		)
+	}
+});
+
 router.post('/addToCollection', function(req, res, next) {
 	User.update(
-		{token: req.body.token}, // Is the which.
-		{$push: {sets: req.body.set_id}},
+		{token: req.body.token},
+		{$push: {sets: req.body.results}},
 		{multi: true},
 		function(err, numberAffected){
 			if(numberAffected.ok == 1){
@@ -72,8 +98,8 @@ router.post('/addToCollection', function(req, res, next) {
 
 router.post('/removeFromCollection', function(req, res, next) {
 	User.update(
-		{token: req.body.token}, // Is the which.
-		{$pull: {sets: req.body.set_id}},
+		{token: req.body.token},
+		{$pull: {sets: req.body.results}},
 		{multi: true},
 		function(err, numberAffected){
 			if(numberAffected.ok == 1){
