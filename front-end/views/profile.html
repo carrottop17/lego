@@ -19,7 +19,7 @@
 		</div>
 		<div dir-paginate="set in sets | orderBy : sortKey : reverse | itemsPerPage: 12" class="pure-u-1-4 lego-set-pic">
 			<img ng-src="{{set.img_sm}}">
-			<button class="button-error pure-button" ng-click="removeFromCollection(set)">Remove from Collection</button>
+			<button class="button-error pure-button" ng-click="removeFromCollection(set); getLegoPartsSearchRemove(set.set_id);">Remove from Collection</button>
 			<a href="#/setparts"><button class="button-secondary pure-button" ng-click='Data.Set_id = set.set_id'>Parts List</button></a>
 			<p>{{set.descr}}</p>
 			<p>{{set.pieces}}</p>

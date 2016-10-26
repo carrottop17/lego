@@ -105,9 +105,7 @@ legoApp.controller('mainController', function($scope, $route, $http, $location, 
 			results: results,
 			token: $cookies.get('token')
 		}).then(function successCallback(response){
-			// $window.location.reload();
 			console.log(response);
-			// $scope.getUserData();
 		}, function errorCallback(response){
 			console.log(response.data);
 		});
@@ -138,7 +136,6 @@ legoApp.controller('mainController', function($scope, $route, $http, $location, 
 			$scope.legoPartsArray = searchData.data.results;
 			$scope.addPartsToCollection(searchData.data);
 			$scope.partObject = searchData.data;
-			console.log($scope.partObject);
 		},function failureFunction(searchData){
 			console.log(searchData.data.results);
 		}
@@ -153,7 +150,6 @@ legoApp.controller('mainController', function($scope, $route, $http, $location, 
 			$scope.legoPartsArray = searchData.data.results;
 			$scope.removePartsFromCollection(searchData.data);
 			$scope.partObject = searchData.data;
-			console.log($scope.partObject);
 		},function failureFunction(searchData){
 			console.log(searchData.data.results);
 		}
