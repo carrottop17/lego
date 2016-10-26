@@ -7,7 +7,7 @@ legoApp.factory('Data', function(){
 	return { Set_id: '' };
 });
 
-legoApp.controller('mainController', function($scope, $rootScope, $http, $location, $cookies, Data){
+legoApp.controller('mainController', function($scope, $route, $http, $location, $cookies, $window, Data){
 	
 	$scope.Data = Data;
 
@@ -105,7 +105,9 @@ legoApp.controller('mainController', function($scope, $rootScope, $http, $locati
 			results: results,
 			token: $cookies.get('token')
 		}).then(function successCallback(response){
-			$scope.getUserData();
+			// $window.location.reload();
+			console.log(response);
+			// $scope.getUserData();
 		}, function errorCallback(response){
 			console.log(response.data);
 		});
@@ -135,7 +137,23 @@ legoApp.controller('mainController', function($scope, $rootScope, $http, $locati
 		}).then(function successFunction(searchData){
 			$scope.legoPartsArray = searchData.data.results;
 			$scope.addPartsToCollection(searchData.data);
-			console.log(searchData);
+			$scope.partObject = searchData.data;
+			console.log($scope.partObject);
+		},function failureFunction(searchData){
+			console.log(searchData.data.results);
+		}
+	);
+	}
+
+	$scope.getLegoPartsSearchRemove = function(set_id){
+		$http({
+		method: 'GET',
+		url: rebrickablePartsURL + set_id, cache: true
+		}).then(function successFunction(searchData){
+			$scope.legoPartsArray = searchData.data.results;
+			$scope.removePartsFromCollection(searchData.data);
+			$scope.partObject = searchData.data;
+			console.log($scope.partObject);
 		},function failureFunction(searchData){
 			console.log(searchData.data.results);
 		}
@@ -207,6 +225,6 @@ legoApp.config(function($routeProvider){
 	})
 	.when('/setparts',{
 		templateUrl: 'views/setparts.html',
-		controller: 'mainController'
+		controller: 'piecesController'
 	})
 });

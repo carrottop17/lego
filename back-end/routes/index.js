@@ -128,7 +128,7 @@ router.post('/addPartsToCollection', function(req, res, next) {
 router.post('/removePartsFromCollection', function(req, res, next) {
 	User.update(
 		{token: req.body.token},
-		{$pullAll: {parts: req.body.parts}},
+		{$pull: {parts: req.body.parts}},
 		{multi: true},
 		function(err, numberAffected){
 			if(numberAffected.ok == 1){
