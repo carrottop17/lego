@@ -1,0 +1,27 @@
+<div ng-controller="mainController" ng-init="getUserData()">
+	
+		<div class="pure-u-1-1">
+			<h1>Total Parts Inventory</h1>
+		</div>
+		
+		<p>Sort By: </p>
+		<div class="sort-buttons">
+		   	<button class="button-success pure-button" ng-click="sort('color_name')">Color</button>
+		    <button class="button-success pure-button" ng-click="sort('-1*qty')">Quantity</button>
+		    <button class="button-success pure-button" ng-click="sort('-1*part_id')">Part ID</button>
+		    <button class="button-success pure-button" ng-click="sort('-1*element_id')">Element ID</button>
+		</div>
+		<div dir-paginate="part in totalPartsInventory | orderBy : sortKey : reverse | itemsPerPage: 48" class="pure-u-1-6 part-pic">
+			<img ng-src="{{part.part_img_url}}">
+			<p><b>Part Id:</b> {{part.part_id}}</p>
+			<p><b>Part Quantity:</b> {{part.qty}}</p>
+			<p><b>Part Name:</b> {{part.part_name}}</p>
+			<p><b>Part Color:</b> {{part.color_name}}</p>
+			<p><b>Part Element Id:</b> {{part.element_id}}</p>
+		</div>
+
+		<div class="text-center">
+     		<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>
+		</div>
+	
+</div>

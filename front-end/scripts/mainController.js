@@ -121,7 +121,16 @@ legoApp.controller('mainController', function($scope, $route, $http, $location, 
 				$scope.username = response.data.username;
 				$scope.email = response.data.email;
 				$scope.sets = response.data.sets;
-				console.log(response.data.sets)
+				var partsArrays = response.data.parts;
+				var mergedPartsArrays = [].concat.apply([], partsArrays);
+				var totalPartsArray = []
+				for(var i = 0; i < mergedPartsArrays.length; i++){
+					for(var j = 0; j < mergedPartsArrays[i].parts.length; j++){
+						totalPartsArray.push(mergedPartsArrays[i].parts[j]);
+					}
+				}
+				$scope.totalPartsInventory = totalPartsArray;
+				console.log($scope.totalPartsInventory);
 			}
 		}, function errorCallback(response){
 			console.log(response.status);
@@ -222,5 +231,9 @@ legoApp.config(function($routeProvider){
 	.when('/setparts',{
 		templateUrl: 'views/setparts.html',
 		controller: 'piecesController'
+	})
+	.when('/totalparts',{
+		templateUrl: 'views/totalparts.html',
+		controller: 'mainController'
 	})
 });

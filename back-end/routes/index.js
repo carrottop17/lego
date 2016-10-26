@@ -72,7 +72,8 @@ router.get('/getUserData', function(req, res, next){
 						username: document.username,
 						email: document.email,
 						token: document.token,
-						sets: document.sets
+						sets: document.sets,
+						parts: document.parts
 					});
 				}
 			}
