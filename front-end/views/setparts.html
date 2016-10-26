@@ -9,19 +9,18 @@
 		</div>
 		<p>Sort By: </p>
 		<div class="sort-buttons">
-		   	<button class="button-success pure-button" ng-click="sort('year')">Year</button>
-		    <button class="button-success pure-button" ng-click="sort('-1*pieces')">Pieces</button>
-		    <button class="button-success pure-button" ng-click="sort('set_id')">Set ID</button>
+		   	<button class="button-success pure-button" ng-click="sort('color_name')">Color</button>
+		    <button class="button-success pure-button" ng-click="sort('-1*qty')">Quantity</button>
+		    <button class="button-success pure-button" ng-click="sort('-1*part_id')">Part ID</button>
+		    <button class="button-success pure-button" ng-click="sort('-1*element_id')">Element ID</button>
 		</div>
 		<div dir-paginate="part in legoPartsArray | orderBy : sortKey : reverse | itemsPerPage: 48" class="pure-u-1-6 part-pic">
-			<img ng-src="{{partImagePath}}{{part.element_id}}.jpg">
-			<!-- <button class="button-error pure-button" ng-click="removeFromCollection(set)">Remove from Collection</button>
-			<button class="button-secondary pure-button" ng-click="getLegoPartsSearch(set.set_id)">Parts List</button> -->
-			<p>Part Id: {{part.part_id}}</p>
-			<p>Part Quantity: {{part.qty}}</p>
-			<p>Part Name: {{part.part_name}}</p>
-			<p>Part Color: {{part.color_name}}</p>
-			<p>Part Element Id: {{part.element_id}}</p>
+			<img ng-src="{{part.part_img_url}}">
+			<p><b>Part Id:</b> {{part.part_id}}</p>
+			<p><b>Part Quantity:</b> {{part.qty}}</p>
+			<p><b>Part Name:</b> {{part.part_name}}</p>
+			<p><b>Part Color:</b> {{part.color_name}}</p>
+			<p><b>Part Element Id:</b> {{part.element_id}}</p>
 		</div>
 
 		<div class="text-center">

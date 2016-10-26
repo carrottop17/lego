@@ -18,7 +18,20 @@ var userSchema = new Schema({
 		theme3: {type: String},
 		descr: {type: String},
 		img_sm: {type: String},
-	}]
+	}],
+	parts: {
+		descr: {type: String},
+		parts: [
+		{
+			color_name: {type: String},
+			element_id: {type: String},
+			part_id: {type: String},
+			part_img_url: {type: String},
+			part_name: {type: String},
+			qty: {type: String}
+		}],
+		set_id: {type: String}
+	}
 });
 
 module.exports = mongoose.model('User', userSchema);

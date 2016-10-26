@@ -9,7 +9,6 @@ legoApp.factory('Data', function(){
 
 legoApp.controller('mainController', function($scope, $rootScope, $http, $location, $cookies, Data){
 	
-	$scope.imagePath = 'http://rebrickable.com/img/sets-s/';
 	$scope.Data = Data;
 
 	$scope.getSetId = function(set_id){
@@ -19,7 +18,7 @@ legoApp.controller('mainController', function($scope, $rootScope, $http, $locati
 	$scope.getLegoSearch = function(){
 		$http({
 		method: 'GET',
-		url: rebrickableURL + $scope.queryString
+		url: rebrickableURL + $scope.queryString, cache: true
 		}).then(function successFunction(searchData){
 			$scope.legoArray = searchData.data.results;
 			for (var i = 0; i < searchData.data.results.length; i++){
@@ -91,31 +90,17 @@ legoApp.controller('mainController', function($scope, $rootScope, $http, $locati
 	}
 
 	$scope.addToCollection = function(results){
-		console.log(results);
 		$http.post(apiPath + '/addToCollection', {
 			results: results,
 			token: $cookies.get('token')
 		}).then(function successCallback(response){
-			$location.path('/search');
+			console.log(response);
 		}, function errorCallback(response){
 			console.log(response.data);
 		});
 	};
 
-	// $scope.removeFromCollection = function(results){
-	// 	console.log(results);
-	// 	$http.post(apiPath + '/removeFromCollection', {
-	// 		results: results,
-	// 		token: $cookies.get('token')
-	// 	}).then(function successCallback(response){
-	// 		$location.path('/search');
-	// 	}, function errorCallback(response){
-	// 		console.log(response.data);
-	// 	});
-	// };
-
 	$scope.removeFromCollection = function(results){
-		console.log(results);
 		$http.post(apiPath + '/removeFromCollection', {
 			results: results,
 			token: $cookies.get('token')
@@ -127,8 +112,7 @@ legoApp.controller('mainController', function($scope, $rootScope, $http, $locati
 	};
 
 	$scope.getUserData = function(){
-		$http.get(apiPath + '/getUserData?token=' + $cookies.get('token'), {
-		}).then(function successCallback(response){
+		$http.get(apiPath + '/getUserData?token=' + $cookies.get('token'), {cache: true} ).then(function successCallback(response){
 			if (response.data.failure == 'noToken' || response.data.failure == 'badToken'){
 				$location.path('/login');
 				console.log(response.data);
@@ -144,16 +128,51 @@ legoApp.controller('mainController', function($scope, $rootScope, $http, $locati
 		});
 	};
 
+	$scope.getLegoPartsSearch = function(set_id){
+		$http({
+		method: 'GET',
+		url: rebrickablePartsURL + set_id, cache: true
+		}).then(function successFunction(searchData){
+			$scope.legoPartsArray = searchData.data.results;
+			$scope.addPartsToCollection(searchData.data);
+			console.log(searchData);
+		},function failureFunction(searchData){
+			console.log(searchData.data.results);
+		}
+	);
+	}
+
+	$scope.addPartsToCollection = function(parts){
+		$http.post(apiPath + '/addPartsToCollection', {
+			parts: parts,
+			token: $cookies.get('token')
+		}).then(function successCallback(response){
+			console.log(response);
+		}, function errorCallback(response){
+			console.log(response.data);
+		});
+	};
+
+	$scope.removePartsFromCollection = function(parts){
+		$http.post(apiPath + '/removePartsFromCollection', {
+			parts: parts,
+			token: $cookies.get('token')
+		}).then(function successCallback(response){
+			console.log(response);
+		}, function errorCallback(response){
+			console.log(response.data);
+		});
+	};
+
 });
 
 legoApp.controller('piecesController', function($scope, $rootScope, $http, $location, $cookies, Data){
 	$scope.Data = Data;
-	$scope.partImagePath = 'http://rebrickable.com/img/pieces/elements/';
 
 	$scope.getLegoPartsSearch = function(set_id){
 		$http({
 		method: 'GET',
-		url: rebrickablePartsURL + set_id
+		url: rebrickablePartsURL + set_id, cache: true
 		}).then(function successFunction(searchData){
 			$scope.legoPartsArray = searchData.data[0].parts;
 			console.log(searchData);

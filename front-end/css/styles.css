@@ -42,11 +42,16 @@ body .button-error {
   /* this is a maroon */
 }
 /* line 36, ../compass/sass/styles.scss */
+body .button-secondary {
+  background: #42b8dd;
+  /* this is a light blue */
+}
+/* line 39, ../compass/sass/styles.scss */
 body .sort-buttons {
   margin-bottom: 10px;
 }
 
-/* line 41, ../compass/sass/styles.scss */
+/* line 44, ../compass/sass/styles.scss */
 #views {
   margin-left: 200px;
 }

@@ -110,4 +110,34 @@ router.post('/removeFromCollection', function(req, res, next) {
 	);
 });
 
+router.post('/addPartsToCollection', function(req, res, next) {
+	User.update(
+		{token: req.body.token},
+		{$push: {parts: req.body.parts}},
+		{multi: true},
+		function(err, numberAffected){
+			if(numberAffected.ok == 1){
+				res.json({success: "updated"});
+			}else{
+				res.json({failure: "failedUpdate"});
+			};
+		}
+	);
+});
+
+router.post('/removePartsFromCollection', function(req, res, next) {
+	User.update(
+		{token: req.body.token},
+		{$pullAll: {parts: req.body.parts}},
+		{multi: true},
+		function(err, numberAffected){
+			if(numberAffected.ok == 1){
+				res.json({success: "updated"});
+			}else{
+				res.json({failure: "failedUpdate"});
+			};
+		}
+	);
+});
+
 module.exports = router;
