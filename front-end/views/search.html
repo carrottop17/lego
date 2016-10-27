@@ -1,7 +1,14 @@
+<div id="loader" ng-show="loading">
+    <div id="box"></div>
+    <div id="hill"></div>
+</div>
+
+<div class="searchView" ng-hide="onLoad">
 <div class="pure-g">
 	<div class="pure-u-1-1">
 		<h1>Search for Lego Sets</h1>
 	</div>
+	
 	<form class="pure-form" ng-submit="getLegoSearch()">
 	    <fieldset>
 	        <legend></legend>
@@ -23,21 +30,23 @@
 
 
 <div class="pure-g">
-		<div dir-paginate="lego in legoArray | orderBy : sortKey : reverse | itemsPerPage: 12" class="pure-u-1-4 lego-set-pic">
-			<img ng-src="{{lego.img_sm}}">
+		<div dir-paginate="lego in legoArray | orderBy : sortKey : reverse | itemsPerPage: 12" class="pure-u-1-4 lego-set-info">
+			<div class="set-image-container">
+				<img ng-src="{{lego.img_sm}}">
+			</div>
+			
 			<button class="button-success pure-button" ng-click="addToCollection(lego); getLegoPartsSearch(lego.set_id); show=true">Add to Collection</button>
 			<button class="button-error pure-button" ng-show="show" ng-click="removeFromCollection(lego); getLegoPartsSearchRemove(lego.set_id); show=false">Remove from Collection</button>
 			<a href="#/setparts"><button class="button-secondary pure-button" ng-click='Data.Set_id = lego.set_id'>Parts List</button></a>
-			<p>{{lego.descr}}</p>
-			<p>{{lego.pieces}}</p>
-			<p>{{lego.set_id}}</p>
-			<p>{{lego.theme1}}</p>
-			<p>{{lego.theme2}}</p>
-			<p>{{lego.url}}</p>
-			<p>{{lego.year}}</p>
+			<p><b>Description: </b>{{lego.descr}}</p>
+			<p><b>Number of Pieces: </b>{{lego.pieces}}</p>
+			<p><b>Set Id: </b>{{lego.set_id}}</p>
+			<p><b>Theme: </b>{{lego.theme1}}</p>
+			<p><b>Year: </b>{{lego.year}}</p>
 		</div>
 </div>
 
 <div class="text-center">
      <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>
+</div>
 </div>

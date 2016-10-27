@@ -1,12 +1,21 @@
-<div ng-init="getUserData()">
+<div id="loader" ng-show="loading">
+    <div id="box"></div>
+    <div id="hill"></div>
+</div>
+
+<div ng-init="getUserData()" ng-hide="onLoad">
 	
 		<div class="pure-u-1-1">
 			<h1>User Profile</h1>
 		</div>
 		<div class="pure-u-1-1">
-			<div>Name: {{fullname}}</div>
-			<div>Username: {{username}}</div>
-			<div>Email: {{email}}</div>
+			<div><b>Name: </b>{{fullname}}</div>
+			<div><b>Username: </b>{{username}}</div>
+			<div><b>Email: </b>{{email}}</div>
+		</div>
+		<div class="pure-u-1-1">
+			<h2>Lego Parts in Collection:</h2>
+			<a href="#/totalparts"><button class="button-secondary pure-button">Parts Inventory</button></a>
 		</div>
 		<div class="pure-u-1-1">
 			<h2>Lego Sets in Collection:</h2>
@@ -21,13 +30,11 @@
 			<img ng-src="{{set.img_sm}}">
 			<button class="button-error pure-button" ng-click="removeFromCollection(set); getLegoPartsSearchRemove(set.set_id);">Remove from Collection</button>
 			<a href="#/setparts"><button class="button-secondary pure-button" ng-click='Data.Set_id = set.set_id'>Parts List</button></a>
-			<p>{{set.descr}}</p>
-			<p>{{set.pieces}}</p>
-			<p>{{set.set_id}}</p>
-			<p>{{set.theme1}}</p>
-			<p>{{set.theme2}}</p>
-			<p>{{set.url}}</p>
-			<p>{{set.year}}</p>
+			<p><b>Description: </b>{{set.descr}}</p>
+			<p><b>Number of Pieces: </b>{{set.pieces}}</p>
+			<p><b>Set Id: </b>{{set.set_id}}</p>
+			<p><b>Theme: </b>{{set.theme1}}</p>
+			<p><b>Year: </b>{{set.year}}</p>
 		</div>
 
 		<div class="text-center">

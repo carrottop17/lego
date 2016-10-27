@@ -1,4 +1,9 @@
-<div ng-controller="piecesController" ng-init="getLegoPartsSearch(Data.Set_id)">
+<div id="loader" ng-show="loading">
+    <div id="box"></div>
+    <div id="hill"></div>
+</div>
+
+<div ng-controller="piecesController" ng-init="getLegoPartsSearch(Data.Set_id)" ng-hide="onLoad">
 	
 		<div class="pure-u-1-1">
 			<h1>Set Parts</h1>

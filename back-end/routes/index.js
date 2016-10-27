@@ -73,6 +73,26 @@ router.get('/getUserData', function(req, res, next){
 						email: document.email,
 						token: document.token,
 						sets: document.sets,
+					});
+				}
+			}
+		)
+	}
+});
+
+router.get('/getUserPartsInventory', function(req, res, next){
+	var userToken = req.query.token;
+	if(userToken == undefined){
+		//No token was supplied
+		res.json({failure: "noToken"});
+	}else{
+		User.findOne(
+			{token: userToken},
+			function(error, document){
+				if(document == null){
+					res.json({failure: 'badToken'});
+				}else{
+					res.json({
 						parts: document.parts
 					});
 				}

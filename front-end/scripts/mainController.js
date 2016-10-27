@@ -16,6 +16,7 @@ legoApp.controller('mainController', function($scope, $route, $http, $location, 
 	}
 
 	$scope.getLegoSearch = function(){
+		$scope.loading = true;
 		$http({
 		method: 'GET',
 		url: rebrickableURL + $scope.queryString, cache: true
@@ -30,7 +31,9 @@ legoApp.controller('mainController', function($scope, $route, $http, $location, 
 		},function failureFunction(searchData){
 			console.log(searchData.data.results);
 		}
-	);
+	).finally(function () {
+      $scope.loading = false;
+    });
 	}
 
 	$scope.sort = function(keyname){
@@ -105,6 +108,7 @@ legoApp.controller('mainController', function($scope, $route, $http, $location, 
 			results: results,
 			token: $cookies.get('token')
 		}).then(function successCallback(response){
+			$scope.getUserData();
 			console.log(response);
 		}, function errorCallback(response){
 			console.log(response.data);
@@ -112,7 +116,7 @@ legoApp.controller('mainController', function($scope, $route, $http, $location, 
 	};
 
 	$scope.getUserData = function(){
-		$http.get(apiPath + '/getUserData?token=' + $cookies.get('token'), {cache: true} ).then(function successCallback(response){
+		$http.get(apiPath + '/getUserData?token=' + $cookies.get('token')).then(function successCallback(response){
 			if (response.data.failure == 'noToken' || response.data.failure == 'badToken'){
 				$location.path('/login');
 				console.log(response.data);
@@ -121,6 +125,18 @@ legoApp.controller('mainController', function($scope, $route, $http, $location, 
 				$scope.username = response.data.username;
 				$scope.email = response.data.email;
 				$scope.sets = response.data.sets;
+			}
+		}, function errorCallback(response){
+			console.log(response.status);
+		});
+	};
+
+	$scope.getUserPartsInventory = function(){
+		$http.get(apiPath + '/getUserPartsInventory?token=' + $cookies.get('token')).then(function successCallback(response){
+			if (response.data.failure == 'noToken' || response.data.failure == 'badToken'){
+				$location.path('/login');
+				console.log(response.data);
+			} else {
 				var partsArrays = response.data.parts;
 				var mergedPartsArrays = [].concat.apply([], partsArrays);
 				var totalPartsArray = []
@@ -129,6 +145,16 @@ legoApp.controller('mainController', function($scope, $route, $http, $location, 
 						totalPartsArray.push(mergedPartsArrays[i].parts[j]);
 					}
 				}
+				totalPartsArray.sort(function(a, b){
+					return parseFloat(a.element_id) - parseFloat(b.element_id);
+				});
+				for(var k = 0; k < totalPartsArray.length-1; k++){
+					if (totalPartsArray[k].element_id == totalPartsArray[k+1].element_id){
+						totalPartsArray[k].qty = parseFloat(totalPartsArray[k].qty) + parseFloat(totalPartsArray[k+1].qty);
+						totalPartsArray.splice(k+1, 1);
+						k=-1; continue;
+					};
+				};
 				$scope.totalPartsInventory = totalPartsArray;
 				console.log($scope.totalPartsInventory);
 			}
@@ -138,6 +164,8 @@ legoApp.controller('mainController', function($scope, $route, $http, $location, 
 	};
 
 	$scope.getLegoPartsSearch = function(set_id){
+		$scope.loading = true;
+		$scope.onLoad = true;
 		$http({
 		method: 'GET',
 		url: rebrickablePartsURL + set_id, cache: true
@@ -147,11 +175,16 @@ legoApp.controller('mainController', function($scope, $route, $http, $location, 
 			$scope.partObject = searchData.data;
 		},function failureFunction(searchData){
 			console.log(searchData.data.results);
-		}
-	);
+		}).finally(function () {
+      // Hide loading spinner whether our call succeeded or failed.
+      $scope.loading = false;
+      $scope.onLoad = false;
+    });
 	}
 
 	$scope.getLegoPartsSearchRemove = function(set_id){
+		$scope.loading = true;
+		$scope.onLoad = true;
 		$http({
 		method: 'GET',
 		url: rebrickablePartsURL + set_id, cache: true
@@ -162,7 +195,10 @@ legoApp.controller('mainController', function($scope, $route, $http, $location, 
 		},function failureFunction(searchData){
 			console.log(searchData.data.results);
 		}
-	);
+	).finally(function () {
+      $scope.loading = false;
+      $scope.onLoad = false;
+    });
 	}
 
 	$scope.addPartsToCollection = function(parts){
@@ -177,6 +213,7 @@ legoApp.controller('mainController', function($scope, $route, $http, $location, 
 	};
 
 	$scope.removePartsFromCollection = function(parts){
+		$scope.loading = true;
 		$http.post(apiPath + '/removePartsFromCollection', {
 			parts: parts,
 			token: $cookies.get('token')
@@ -184,7 +221,9 @@ legoApp.controller('mainController', function($scope, $route, $http, $location, 
 			console.log(response);
 		}, function errorCallback(response){
 			console.log(response.data);
-		});
+		}).finally(function () {
+      $scope.loading = false;
+    });
 	};
 
 });
@@ -193,6 +232,8 @@ legoApp.controller('piecesController', function($scope, $rootScope, $http, $loca
 	$scope.Data = Data;
 
 	$scope.getLegoPartsSearch = function(set_id){
+		$scope.loading = true;
+		$scope.onLoad = true;
 		$http({
 		method: 'GET',
 		url: rebrickablePartsURL + set_id, cache: true
@@ -201,8 +242,10 @@ legoApp.controller('piecesController', function($scope, $rootScope, $http, $loca
 			console.log(searchData);
 		},function failureFunction(searchData){
 			console.log(searchData.data.results);
-		}
-	);
+		}).finally(function () {
+      $scope.loading = false;
+      $scope.onLoad = false;
+    });
 	}
 
 });
