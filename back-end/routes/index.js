@@ -132,6 +132,7 @@ router.post('/removeFromCollection', function(req, res, next) {
 });
 
 router.post('/addPartsToCollection', function(req, res, next) {
+	console.log(req.body.parts);
 	User.update(
 		{token: req.body.token},
 		{$push: {parts: req.body.parts}},

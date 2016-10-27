@@ -26,19 +26,31 @@
 		    <button class="button-success pure-button" ng-click="sort('-1*pieces')">Pieces</button>
 		    <button class="button-success pure-button" ng-click="sort('set_id')">Set ID</button>
 		</div>
-		<div dir-paginate="set in sets | orderBy : sortKey : reverse | itemsPerPage: 12" class="pure-u-1-4 lego-set-pic">
-			<img ng-src="{{set.img_sm}}">
-			<button class="button-error pure-button" ng-click="removeFromCollection(set); getLegoPartsSearchRemove(set.set_id);">Remove from Collection</button>
-			<a href="#/setparts"><button class="button-secondary pure-button" ng-click='Data.Set_id = set.set_id'>Parts List</button></a>
-			<p><b>Description: </b>{{set.descr}}</p>
-			<p><b>Number of Pieces: </b>{{set.pieces}}</p>
-			<p><b>Set Id: </b>{{set.set_id}}</p>
-			<p><b>Theme: </b>{{set.theme1}}</p>
-			<p><b>Year: </b>{{set.year}}</p>
+
+	<div class="pure-g">
+		<div dir-paginate="set in sets | orderBy : sortKey : reverse | itemsPerPage: 12" class="pure-u-1-4 lego-set-info">
+			<div class="set-image-container">
+				<img ng-src="{{set.img_sm}}">
+			</div>
+			<div class="info-button-container">
+				<div class="set-info-buttons">
+					<button class="button-error pure-button" ng-click="removeFromCollection(set); getLegoPartsSearchRemove(set.set_id);">Remove</button>
+					<a href="#/setparts"><button class="button-secondary pure-button" ng-click='Data.Set_id = set.set_id'>Parts List</button></a>
+				</div>
+				<div class="set-info">
+					<p><b>Description: </b>{{set.descr}}</p>
+					<p><b>Number of Pieces: </b>{{set.pieces}}</p>
+					<p><b>Set Id: </b>{{set.set_id}}</p>
+					<p><b>Theme: </b>{{set.theme1}}</p>
+					<p><b>Year: </b>{{set.year}}</p>
+				</div>
+			</div>
 		</div>
+	</div>
 
 		<div class="text-center">
      		<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>
 		</div>
+	</div>
 	
 </div>

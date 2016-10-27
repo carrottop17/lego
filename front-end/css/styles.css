@@ -2,36 +2,67 @@
 body {
   background-color: white;
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-bottom: 20px;
 }
-/* line 4, ../compass/sass/styles.scss */
+/* line 5, ../compass/sass/styles.scss */
 body .lego-set-info {
   width: 275px;
-  border: 1px solid black;
   border-radius: 5px;
-  padding: 5px;
+  border: 1px solid #cecece;
   margin: 5px;
+  box-shadow: 5px 5px 5px #888888;
+  background-color: #fed500;
 }
-/* line 10, ../compass/sass/styles.scss */
+/* line 12, ../compass/sass/styles.scss */
 body .lego-set-info .set-image-container {
-  width: 250px;
+  margin: auto;
+  padding-top: 10px;
+  width: 273px;
   height: 250px;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 5px 5px 0px 0px;
+  position: relative;
 }
-/* line 13, ../compass/sass/styles.scss */
+/* line 21, ../compass/sass/styles.scss */
 body .lego-set-info .set-image-container img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  margin: auto;
+  vertical-align: middle;
   max-width: 250px;
   max-height: 250px;
   overflow: hidden;
 }
-/* line 21, ../compass/sass/styles.scss */
+/* line 35, ../compass/sass/styles.scss */
+body .lego-set-info .info-button-container {
+  background-color: #fed500;
+}
+/* line 37, ../compass/sass/styles.scss */
+body .lego-set-info .info-button-container .set-info-buttons {
+  padding-top: 10px;
+  text-align: center;
+}
+/* line 42, ../compass/sass/styles.scss */
+body .lego-set-info .info-button-container .set-info p {
+  line-height: 18px;
+  text-align: center;
+  margin: 10px;
+}
+/* line 51, ../compass/sass/styles.scss */
 body .part-pic img {
   max-width: 150px;
   overflow: hidden;
 }
-/* line 26, ../compass/sass/styles.scss */
+/* line 56, ../compass/sass/styles.scss */
 body .search-button {
   margin-left: 10px;
 }
-/* line 29, ../compass/sass/styles.scss */
+/* line 59, ../compass/sass/styles.scss */
 body .button-success,
 body .button-error,
 body .button-warning,
@@ -40,37 +71,37 @@ body .button-secondary {
   border-radius: 4px;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
-/* line 37, ../compass/sass/styles.scss */
+/* line 67, ../compass/sass/styles.scss */
 body .button-success {
   background: #1cb841;
   /* this is a green */
 }
-/* line 40, ../compass/sass/styles.scss */
+/* line 70, ../compass/sass/styles.scss */
 body .button-warning {
   background: #df7514;
   /* this is an orange */
 }
-/* line 43, ../compass/sass/styles.scss */
+/* line 73, ../compass/sass/styles.scss */
 body .button-error {
   background: #ca3c3c;
   /* this is a maroon */
 }
-/* line 46, ../compass/sass/styles.scss */
+/* line 76, ../compass/sass/styles.scss */
 body .button-secondary {
   background: #42b8dd;
   /* this is a light blue */
 }
-/* line 49, ../compass/sass/styles.scss */
+/* line 79, ../compass/sass/styles.scss */
 body .sort-buttons {
   margin-bottom: 10px;
 }
 
-/* line 54, ../compass/sass/styles.scss */
+/* line 84, ../compass/sass/styles.scss */
 #views {
   margin-left: 200px;
 }
 
-/* line 58, ../compass/sass/styles.scss */
+/* line 89, ../compass/sass/styles.scss */
 #loader {
   position: absolute;
   top: 50%;
@@ -82,7 +113,7 @@ body .sort-buttons {
   background-color: white;
 }
 
-/* line 69, ../compass/sass/styles.scss */
+/* line 100, ../compass/sass/styles.scss */
 #hill {
   position: absolute;
   width: 7.1em;
@@ -97,7 +128,7 @@ body .sort-buttons {
   transform: rotate(45deg);
 }
 
-/* line 83, ../compass/sass/styles.scss */
+/* line 114, ../compass/sass/styles.scss */
 #hill:after {
   content: '';
   position: absolute;
@@ -107,7 +138,7 @@ body .sort-buttons {
   background-color: white;
 }
 
-/* line 92, ../compass/sass/styles.scss */
+/* line 123, ../compass/sass/styles.scss */
 #box {
   position: absolute;
   left: 0;

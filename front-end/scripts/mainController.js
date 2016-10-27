@@ -202,6 +202,7 @@ legoApp.controller('mainController', function($scope, $route, $http, $location, 
 	}
 
 	$scope.addPartsToCollection = function(parts){
+		console.log(parts);
 		$http.post(apiPath + '/addPartsToCollection', {
 			parts: parts,
 			token: $cookies.get('token')

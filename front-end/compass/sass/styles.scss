@@ -1,19 +1,49 @@
 body{
 	background-color: white;
 	font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin-bottom: 20px;
 	.lego-set-info{
 		width: 275px;
-		border: 1px solid black;
 		border-radius: 5px;
-		padding: 5px;
+		border: 1px solid #cecece;
 		margin: 5px;
+		box-shadow: 5px 5px 5px #888888;
+		background-color: #fed500;
 		.set-image-container{
-			width: 250px;
+			margin: auto;
+			padding-top: 10px;
+			width: 273px;
 			height: 250px;
+			overflow: hidden;
+			background-color: #fff;
+			border-radius: 5px 5px 0px 0px;
+			position: relative;
 			img{
+				position: absolute;  
+    			top: 0;  
+   		 		bottom: 0;  
+    			left: 0;  
+    			right: 0;
+				display: block;
+				margin: auto;
+				vertical-align: middle;
 				max-width: 250px;
 				max-height: 250px;
 				overflow: hidden;
+			}
+		}
+		.info-button-container{
+			background-color: #fed500;
+			.set-info-buttons{
+				padding-top: 10px;
+				text-align: center;
+			}
+			.set-info{
+				p{
+					line-height: 18px;
+					text-align: center;
+					margin: 10px;
+				}
 			}
 		}
 	}
@@ -55,6 +85,7 @@ body{
 	margin-left: 200px;
 }
 
+//loading animation
 #loader {
   position: absolute;
   top: 50%;

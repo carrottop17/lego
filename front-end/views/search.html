@@ -34,15 +34,20 @@
 			<div class="set-image-container">
 				<img ng-src="{{lego.img_sm}}">
 			</div>
-			
-			<button class="button-success pure-button" ng-click="addToCollection(lego); getLegoPartsSearch(lego.set_id); show=true">Add to Collection</button>
-			<button class="button-error pure-button" ng-show="show" ng-click="removeFromCollection(lego); getLegoPartsSearchRemove(lego.set_id); show=false">Remove from Collection</button>
-			<a href="#/setparts"><button class="button-secondary pure-button" ng-click='Data.Set_id = lego.set_id'>Parts List</button></a>
-			<p><b>Description: </b>{{lego.descr}}</p>
-			<p><b>Number of Pieces: </b>{{lego.pieces}}</p>
-			<p><b>Set Id: </b>{{lego.set_id}}</p>
-			<p><b>Theme: </b>{{lego.theme1}}</p>
-			<p><b>Year: </b>{{lego.year}}</p>
+			<div class="info-button-container">
+				<div class="set-info-buttons">
+					<button class="button-success pure-button" ng-click="addToCollection(lego); getLegoPartsSearch(lego.set_id); show=true">Add to Collection</button>
+					<button class="button-error pure-button" ng-show="show" ng-click="removeFromCollection(lego); getLegoPartsSearchRemove(lego.set_id); show=false">Remove from Collection</button>
+					<a href="#/setparts"><button class="button-secondary pure-button" ng-click='Data.Set_id = lego.set_id'>Parts List</button></a>
+				</div>
+				<div class="set-info">
+					<p><b>Description: </b>{{lego.descr}}</p>
+					<p><b>Number of Pieces: </b>{{lego.pieces}}</p>
+					<p><b>Set Id: </b>{{lego.set_id}}</p>
+					<p><b>Theme: </b>{{lego.theme1}}</p>
+					<p><b>Year: </b>{{lego.year}}</p>
+				</div>
+			</div>
 		</div>
 </div>
 
