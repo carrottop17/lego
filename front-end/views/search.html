@@ -33,11 +33,12 @@
 		<div dir-paginate="lego in legoArray | orderBy : sortKey : reverse | itemsPerPage: 12" class="pure-u-1-4 lego-set-info">
 			<div class="set-image-container">
 				<img ng-src="{{lego.img_sm}}">
+				<button class="button-error pure-button remove-button" ng-show="show" ng-click="removeFromCollection(lego); getLegoPartsSearchRemove(lego.set_id); show=false">X</button>
 			</div>
 			<div class="info-button-container">
 				<div class="set-info-buttons">
 					<button class="button-success pure-button" ng-click="addToCollection(lego); getLegoPartsSearch(lego.set_id); show=true">Add to Collection</button>
-					<button class="button-error pure-button" ng-show="show" ng-click="removeFromCollection(lego); getLegoPartsSearchRemove(lego.set_id); show=false">Remove from Collection</button>
+					
 					<a href="#/setparts"><button class="button-secondary pure-button" ng-click='Data.Set_id = lego.set_id'>Parts List</button></a>
 				</div>
 				<div class="set-info">

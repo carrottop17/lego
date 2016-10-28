@@ -90,6 +90,7 @@ legoApp.controller('mainController', function($scope, $route, $http, $location, 
 	$scope.logout = function(){
 		$cookies.remove('token');
 		$cookies.remove('username');
+		$scope.loggedIn = false;
 	}
 
 	$scope.addToCollection = function(results){

@@ -25,10 +25,11 @@
 		   	<button class="button-success pure-button" ng-click="sort('year')">Year</button>
 		    <button class="button-success pure-button" ng-click="sort('-1*pieces')">Pieces</button>
 		    <button class="button-success pure-button" ng-click="sort('set_id')">Set ID</button>
+		    <input ng-model="searchText" placeholder="Search" class="search-bar">
 		</div>
 
 	<div class="pure-g">
-		<div dir-paginate="set in sets | orderBy : sortKey : reverse | itemsPerPage: 12" class="pure-u-1-4 lego-set-info">
+		<div dir-paginate="set in sets | filter:searchText | orderBy : sortKey : reverse | itemsPerPage: 12" class="pure-u-1-4 lego-set-info">
 			<div class="set-image-container">
 				<img ng-src="{{set.img_sm}}">
 			</div>

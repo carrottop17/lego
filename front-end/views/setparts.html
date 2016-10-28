@@ -18,8 +18,9 @@
 		    <button class="button-success pure-button" ng-click="sort('-1*qty')">Quantity</button>
 		    <button class="button-success pure-button" ng-click="sort('-1*part_id')">Part ID</button>
 		    <button class="button-success pure-button" ng-click="sort('-1*element_id')">Element ID</button>
+		    <input ng-model="searchText" placeholder="Search" class="search-bar">
 		</div>
-		<div dir-paginate="part in legoPartsArray | orderBy : sortKey : reverse | itemsPerPage: 48" class="pure-u-1-6 part-pic">
+		<div dir-paginate="part in legoPartsArray | filter:searchText | orderBy : sortKey : reverse | itemsPerPage: 48" class="pure-u-1-6 part-pic">
 			<img ng-src="{{part.part_img_url}}">
 			<p><b>Part Id:</b> {{part.part_id}}</p>
 			<p><b>Part Quantity:</b> {{part.qty}}</p>
