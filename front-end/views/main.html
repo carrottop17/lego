@@ -1,3 +1,4 @@
+<div ng-controller="mainController" ng-init="getMocSearch()">
 <div class="splash-container">
     <div class="splash">
         <h1 class="splash-head"><img src="/images/output_YDAdzk.gif" alt=""></h1>
@@ -12,44 +13,32 @@
 
 <div class="content-wrapper">
     <div class="content">
-        <h2 class="content-head is-center">Excepteur sint occaecat cupidatat.</h2>
+        <h2 class="content-head is-center">Keep track of all your Lego sets and parts inventory.</h2>
 
         <div class="pure-g">
             <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
 
                 <h3 class="content-subhead">
-                    <i class="fa fa-rocket"></i>
                     Get Started Quickly
                 </h3>
                 <p>
-                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                    Simply search for Lego sets by description, set ID, theme or year made.
                 </p>
             </div>
             <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
                 <h3 class="content-subhead">
-                    <i class="fa fa-mobile"></i>
-                    Responsive Layouts
+                    Add to Your Collection
                 </h3>
                 <p>
-                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                    Add all the sets you own to your collection and view the parts list for each set.  Sort your collection by year, pieces count or set ID.
                 </p>
             </div>
             <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
                 <h3 class="content-subhead">
-                    <i class="fa fa-th-large"></i>
-                    Modular
+                    Track Your Inventory
                 </h3>
                 <p>
-                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
-                </p>
-            </div>
-            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                <h3 class="content-subhead">
-                    <i class="fa fa-check-square-o"></i>
-                    Plays Nice
-                </h3>
-                <p>
-                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                    View all the parts in your inventory so you know what is available for the MOC (My Own Creation) you are desigining.  Search for a specific part and sort by color, quantity, part ID or element ID.
                 </p>
             </div>
         </div>
@@ -57,23 +46,22 @@
 
     <div class="ribbon l-box-lrg pure-g">
         <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
-            <img class="pure-img-responsive" alt="File Icons" width="300" src="img/common/file-icons.png">
+            <img class="pure-img-responsive moc-image" alt="File Icons" width="300" ng-src="{{mocImage}}">
+            <img class="pure-img-responsive moc-image" alt="File Icons" width="300" ng-src="{{mocImage2}}">
+            <img class="pure-img-responsive moc-image" alt="File Icons" width="300" ng-src="{{mocImage3}}">
         </div>
         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
 
-            <h2 class="content-head content-head-ribbon">Laboris nisi ut aliquip.</h2>
+            <h2 class="content-head content-head-ribbon">Build Your MOCs with Confidence.</h2>
 
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor.
+            <p class="ribbon-content">
+                When designing and building your next MOC feel confident in the fact that you know exactly what Lego parts in your inventory.  Search by color, ID and description to find the exact part you are looking for to complete your next masterpiece.
             </p>
         </div>
     </div>
 
     <div class="content">
-        <h2 class="content-head is-center">Dolore magna aliqua. Uis aute irure.</h2>
+        <h2 class="content-head is-center">Register now to start using Blockhead.</h2>
 
         <div class="pure-g">
             <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
@@ -118,4 +106,5 @@
         View the source of this layout to learn more. Made with love by the YUI Team.
     </div>
 
+</div>
 </div>

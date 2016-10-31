@@ -200,6 +200,7 @@ a.pure-button-primary {
 /* This is a modifier class used when the content-head is inside a ribbon */
 .content-head-ribbon {
     color: white;
+    text-align: center;
 }
 
 /* This is the class used for the content sub-headers (<h3>) */
@@ -214,6 +215,11 @@ a.pure-button-primary {
 .ribbon {
     background: #ffcf00;
     color: #aaa;
+}
+.ribbon-content{
+    text-align: center;
+    color: #fff;
+    margin: 20px 50px;
 }
 
 /* This is the class used for the footer */

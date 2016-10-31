@@ -67,16 +67,24 @@ body .lego-set-info .info-button-container .set-info p {
   text-align: center;
   margin: 10px;
 }
-/* line 65, ../compass/sass/styles.scss */
+/* line 64, ../compass/sass/styles.scss */
+body .moc-image {
+  border: 3px solid #fff;
+  border-radius: 5px;
+  max-width: 300px;
+  max-height: 300px;
+  margin: 10px;
+}
+/* line 72, ../compass/sass/styles.scss */
 body .part-pic img {
   max-width: 150px;
   overflow: hidden;
 }
-/* line 70, ../compass/sass/styles.scss */
+/* line 77, ../compass/sass/styles.scss */
 body .search-button {
   margin-left: 10px;
 }
-/* line 73, ../compass/sass/styles.scss */
+/* line 80, ../compass/sass/styles.scss */
 body .button-success,
 body .button-error,
 body .button-warning,
@@ -85,37 +93,37 @@ body .button-secondary {
   border-radius: 5px;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
-/* line 81, ../compass/sass/styles.scss */
+/* line 88, ../compass/sass/styles.scss */
 body .button-success {
   background: #1cb841;
   /* this is a green */
 }
-/* line 84, ../compass/sass/styles.scss */
+/* line 91, ../compass/sass/styles.scss */
 body .button-warning {
   background: #df7514;
   /* this is an orange */
 }
-/* line 87, ../compass/sass/styles.scss */
+/* line 94, ../compass/sass/styles.scss */
 body .button-error {
   background: #d01012;
   /* this is a maroon */
 }
-/* line 90, ../compass/sass/styles.scss */
+/* line 97, ../compass/sass/styles.scss */
 body .button-secondary {
   background: #42b8dd;
   /* this is a light blue */
 }
-/* line 93, ../compass/sass/styles.scss */
+/* line 100, ../compass/sass/styles.scss */
 body .sort-buttons {
   margin-bottom: 10px;
 }
 
-/* line 98, ../compass/sass/styles.scss */
+/* line 105, ../compass/sass/styles.scss */
 #views {
   margin-left: 200px;
 }
 
-/* line 103, ../compass/sass/styles.scss */
+/* line 110, ../compass/sass/styles.scss */
 #loader {
   position: absolute;
   top: 50%;
@@ -127,7 +135,7 @@ body .sort-buttons {
   background-color: white;
 }
 
-/* line 114, ../compass/sass/styles.scss */
+/* line 121, ../compass/sass/styles.scss */
 #hill {
   position: absolute;
   width: 7.1em;
@@ -142,7 +150,7 @@ body .sort-buttons {
   transform: rotate(45deg);
 }
 
-/* line 128, ../compass/sass/styles.scss */
+/* line 135, ../compass/sass/styles.scss */
 #hill:after {
   content: '';
   position: absolute;
@@ -152,7 +160,7 @@ body .sort-buttons {
   background-color: white;
 }
 
-/* line 137, ../compass/sass/styles.scss */
+/* line 144, ../compass/sass/styles.scss */
 #box {
   position: absolute;
   left: 0;

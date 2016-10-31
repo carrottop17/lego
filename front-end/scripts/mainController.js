@@ -1,7 +1,8 @@
 var legoApp = angular.module("legoApp", ['ngRoute', 'ngCookies', 'angularUtils.directives.dirPagination']);
 var apiPath = "http://localhost:3000";
 var rebrickableURL = 'https://rebrickable.com/api/search?key=wqq5lDBA3N&format=json&type=S&query=';
-var rebrickablePartsURL = 'https://rebrickable.com/api/get_set_parts?key=wqq5lDBA3N&format=json&type=S&set='
+var rebrickablePartsURL = 'https://rebrickable.com/api/get_set_parts?key=wqq5lDBA3N&format=json&type=S&set=';
+var rebrickableMocURL = 'https://rebrickable.com/api/search?key=wqq5lDBA3N&format=json&type=M&query='
 
 legoApp.factory('Data', function(){
 	return { Set_id: '' };
@@ -13,6 +14,30 @@ legoApp.controller('mainController', function($scope, $rootScope, $route, $http,
 
 	$scope.getSetId = function(set_id){
 		console.log(set_id);
+	}
+
+	$scope.randMocSearch = Math.floor((Math.random() * 100) + 1);
+	var randMocImage = Math.floor((Math.random() * 1000) + 1);
+
+	$scope.getMocSearch = function(){
+		$scope.loading = true;
+		$http({
+		method: 'GET',
+		url: rebrickableMocURL + $scope.randMocSearch
+		}).then(function successFunction(searchData){
+			$scope.mocList = searchData.data.results;
+			console.log($scope.randMocSearch);
+			console.log($scope.mocList);
+			$scope.mocImage = searchData.data.results[0].img_sm;
+			$scope.mocImage2 = searchData.data.results[1].img_sm;
+			$scope.mocImage3 = searchData.data.results[2].img_sm;
+			console.log($scope.mocImage);
+		},function failureFunction(searchData){
+			console.log(searchData.data.results);
+		}
+	).finally(function () {
+      $scope.loading = false;
+    });
 	}
 
 	$scope.getLegoSearch = function(){
