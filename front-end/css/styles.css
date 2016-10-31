@@ -82,7 +82,7 @@ body .button-error,
 body .button-warning,
 body .button-secondary {
   color: white;
-  border-radius: 4px;
+  border-radius: 5px;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* line 81, ../compass/sass/styles.scss */

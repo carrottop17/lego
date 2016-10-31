@@ -7,7 +7,7 @@ legoApp.factory('Data', function(){
 	return { Set_id: '' };
 });
 
-legoApp.controller('mainController', function($scope, $route, $http, $location, $cookies, $window, Data){
+legoApp.controller('mainController', function($scope, $rootScope, $route, $http, $location, $cookies, $window, Data){
 	
 	$scope.Data = Data;
 
@@ -54,6 +54,7 @@ legoApp.controller('mainController', function($scope, $route, $http, $location, 
 				$cookies.put('token', response.data.token);
 				$cookies.put('username', $scope.username);
 				$location.path('/search');
+				$rootScope.loggedIn = true;
 				console.log(response.data);
 			}
 		},function errorCallback(response){
@@ -72,7 +73,8 @@ legoApp.controller('mainController', function($scope, $route, $http, $location, 
 				$cookies.put('token', response.data.token);
 				$cookies.put('username', $scope.username);
 				$location.path('/profile');
-				$scope.loggedIn = true;
+				$rootScope.loggedIn = true;
+				console.log($scope.loggedIn);
 				console.log(response.data.token);
 			}
 			if(response.data.failure == 'noUser'){
@@ -90,7 +92,8 @@ legoApp.controller('mainController', function($scope, $route, $http, $location, 
 	$scope.logout = function(){
 		$cookies.remove('token');
 		$cookies.remove('username');
-		$scope.loggedIn = false;
+		$rootScope.loggedIn = false;
+		console.log($scope.loggedIn);
 	}
 
 	$scope.addToCollection = function(results){

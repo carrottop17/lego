@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="css/marketing.css">
 	<link rel="stylesheet" href="css/side-menu.css">
 	<link rel="stylesheet" href="css/styles.css">
 	<meta charset="UTF-8">
@@ -26,8 +27,8 @@
 
             <ul class="pure-menu-list">
                 <li class="pure-menu-item"><a href="#/" class="pure-menu-link">Home</a></li>
-                <li class="pure-menu-item"><a href="#/login" class="pure-menu-link" ng-show="loggedIn">Sign In</a></li>
-                <li class="pure-menu-item"><a href="#/" class="pure-menu-link" ng-click="logout()">Sign Out</a></li>
+                <li class="pure-menu-item"><a href="#/login" class="pure-menu-link" ng-hide="loggedIn">Sign In</a></li>
+                <li class="pure-menu-item"><a href="#/" class="pure-menu-link" ng-click="logout()" ng-show="loggedIn">Sign Out</a></li>
 
                 <li class="pure-menu-item" class="menu-item-divided pure-menu-selected">
                     <a href="#/register" class="pure-menu-link">Register</a>
