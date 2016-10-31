@@ -6,7 +6,7 @@
             Find Lego sets.  Add them to your collection. Keep track of your parts inventory.
         </p>
         <p>
-            <a href="http://purecss.io" class="pure-button pure-button-primary">Get Started</a>
+            <a href="#/search" class="pure-button pure-button-primary">Get Started</a>
         </p>
     </div>
 </div>
@@ -65,18 +65,30 @@
 
         <div class="pure-g">
             <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
-                <form class="pure-form pure-form-stacked">
+                <form class="pure-form pure-form-stacked" ng-submit="register()" id="registration-form">
                     <fieldset>
 
-                        <label for="name">Your Name</label>
-                        <input id="name" type="text" placeholder="Your Name">
+                        <div class="pure-control-group">
+			            	<label for="fullname">Full Name</label>
+			           		<input id="fullname" type="text" placeholder="Full Name" ng-model="fullname">
+			        	</div>
 
 
-                        <label for="email">Your Email</label>
-                        <input id="email" type="email" placeholder="Your Email">
+                        <div class="pure-control-group">
+			            	<label for="name">Username</label>
+			           		<input id="username" type="text" placeholder="Username" ng-model="username">
+			        	</div>
 
-                        <label for="password">Your Password</label>
-                        <input id="password" type="password" placeholder="Your Password">
+                        <div class="pure-control-group">
+			            	<label for="password">Password</label>
+			            	<input id="password" type="password" placeholder="Password" ng-model="password">
+			        	</div>
+
+			        	<div class="pure-control-group">
+			            	<label for="email">Email Address</label>
+			            	<input id="email" type="email" placeholder="Email Address" ng-model="email">
+			        	</div>
+
 
                         <button type="submit" class="pure-button">Sign Up</button>
                     </fieldset>
@@ -86,24 +98,18 @@
             <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
                 <h4>Contact Us</h4>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.
+                    Feel free to contact us regarding any suggestions you have for Blockhead or any problems that you are experiencing. 
                 </p>
-
-                <h4>More Information</h4>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua.
-                </p>
+            		<a href="mailto:danielbarranco@gmail.com"><button class="pure-button">Contact</button></a>
+        		</p>
             </div>
         </div>
 
     </div>
 
     <div class="footer l-box is-center">
-        View the source of this layout to learn more. Made with love by the YUI Team.
+        Copyright © 2016 Blockhead / Daniel Barranco
     </div>
 
 </div>
