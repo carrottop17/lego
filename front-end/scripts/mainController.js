@@ -12,7 +12,7 @@ legoApp.controller('mainController', function($scope, $rootScope, $route, $http,
 	$scope.instructionsURL = 'https://wwwsecure.us.lego.com/en-us/service/buildinginstructions/search#?search&text='
 	$scope.pageClass = 'page-other';
 	$scope.Data = Data;
-	$rootScope.loggedIn = true;
+	$rootScope.loggedIn;
 
 	$scope.getSetId = function(set_id){
 		console.log(set_id);
@@ -250,6 +250,7 @@ legoApp.controller('mainController', function($scope, $rootScope, $route, $http,
 legoApp.controller('piecesController', function($scope, $rootScope, $http, $location, $cookies, Data){
 	$scope.Data = Data;
 	$scope.pageClass = 'page-home';
+	$rootScope.loggedIn;
 	// $rootScope.loggedIn = true;
 
 	$scope.getLegoPartsSearch = function(set_id){
@@ -274,6 +275,7 @@ legoApp.controller('piecesController', function($scope, $rootScope, $http, $loca
 legoApp.controller('homeController', function($scope, $rootScope, $route, $http, $location, $cookies, $window, Data){
 	$scope.pageClass = 'page-home';
 	$scope.Data = Data;
+	$rootScope.loggedIn;
 	// $rootScope.loggedIn = true;
 
 	$scope.randMocSearch = Math.floor((Math.random() * 100) + 1);
