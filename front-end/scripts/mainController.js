@@ -1,5 +1,5 @@
 var legoApp = angular.module("legoApp", ['ngRoute', 'ngCookies', 'ngAnimate', 'angularUtils.directives.dirPagination']);
-var apiPath = "http://localhost:3000";
+var apiPath = "http://danielbarranco.com:3002";
 var rebrickableURL = 'https://rebrickable.com/api/search?key=wqq5lDBA3N&format=json&type=S&query=';
 var rebrickablePartsURL = 'https://rebrickable.com/api/get_set_parts?key=wqq5lDBA3N&format=json&type=S&set=';
 var rebrickableMocURL = 'https://rebrickable.com/api/search?key=wqq5lDBA3N&format=json&type=M&query='
