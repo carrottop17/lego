@@ -1,4 +1,4 @@
-var legoApp = angular.module("legoApp", ['ngRoute', 'ngCookies', 'angularUtils.directives.dirPagination']);
+var legoApp = angular.module("legoApp", ['ngRoute', 'ngCookies', 'ngAnimate', 'angularUtils.directives.dirPagination']);
 var apiPath = "http://localhost:3000";
 var rebrickableURL = 'https://rebrickable.com/api/search?key=wqq5lDBA3N&format=json&type=S&query=';
 var rebrickablePartsURL = 'https://rebrickable.com/api/get_set_parts?key=wqq5lDBA3N&format=json&type=S&set=';
@@ -9,39 +9,17 @@ legoApp.factory('Data', function(){
 });
 
 legoApp.controller('mainController', function($scope, $rootScope, $route, $http, $location, $cookies, $window, Data){
-	
+	$scope.instructionsURL = 'https://wwwsecure.us.lego.com/en-us/service/buildinginstructions/search#?search&text='
+	$scope.pageClass = 'page-other';
 	$scope.Data = Data;
 
 	$scope.getSetId = function(set_id){
 		console.log(set_id);
 	}
 
-	$scope.randMocSearch = Math.floor((Math.random() * 100) + 1);
-	var randMocImage = Math.floor((Math.random() * 1000) + 1);
-
-	$scope.getMocSearch = function(){
-		$scope.loading = true;
-		$http({
-		method: 'GET',
-		url: rebrickableMocURL + $scope.randMocSearch
-		}).then(function successFunction(searchData){
-			$scope.mocList = searchData.data.results;
-			console.log($scope.randMocSearch);
-			console.log($scope.mocList);
-			$scope.mocImage = searchData.data.results[0].img_sm;
-			$scope.mocImage2 = searchData.data.results[1].img_sm;
-			$scope.mocImage3 = searchData.data.results[2].img_sm;
-			console.log($scope.mocImage);
-		},function failureFunction(searchData){
-			console.log(searchData.data.results);
-		}
-	).finally(function () {
-      $scope.loading = false;
-    });
-	}
-
 	$scope.getLegoSearch = function(){
 		$scope.loading = true;
+		$scope.onLoad = true;
 		$http({
 		method: 'GET',
 		url: rebrickableURL + $scope.queryString, cache: true
@@ -51,13 +29,18 @@ legoApp.controller('mainController', function($scope, $rootScope, $route, $http,
 				if (searchData.data.results[i].kit == 1){
 					searchData.data.results.splice(i, 1);
 				}
+			} for (var j = 0; j < searchData.data.results.length; j++){
+				var setId = searchData.data.results[j].set_id;
+				searchData.data.results[j].set_id = setId.slice(0, -2);
+				// console.log($scope.truncatedSetId);
+				$scope.newLegoArray = searchData.data.results;
 			}
-			console.log(searchData);
 		},function failureFunction(searchData){
 			console.log(searchData.data.results);
 		}
 	).finally(function () {
       $scope.loading = false;
+      $scope.onLoad = false;
     });
 	}
 
@@ -260,6 +243,7 @@ legoApp.controller('mainController', function($scope, $rootScope, $route, $http,
 
 legoApp.controller('piecesController', function($scope, $rootScope, $http, $location, $cookies, Data){
 	$scope.Data = Data;
+	$scope.pageClass = 'page-home';
 
 	$scope.getLegoPartsSearch = function(set_id){
 		$scope.loading = true;
@@ -280,10 +264,63 @@ legoApp.controller('piecesController', function($scope, $rootScope, $http, $loca
 
 });
 
+legoApp.controller('homeController', function($scope, $rootScope, $route, $http, $location, $cookies, $window, Data){
+	$scope.pageClass = 'page-home';
+	$scope.Data = Data;
+
+	$scope.randMocSearch = Math.floor((Math.random() * 100) + 1);
+	var randMocImage = Math.floor((Math.random() * 1000) + 1);
+
+	$scope.getMocSearch = function(){
+		$scope.loading = true;
+		$http({
+		method: 'GET',
+		url: rebrickableMocURL + $scope.randMocSearch
+		}).then(function successFunction(searchData){
+			$scope.mocList = searchData.data.results;
+			console.log($scope.randMocSearch);
+			console.log($scope.mocList);
+			$scope.mocImage = searchData.data.results[0].img_sm;
+			$scope.mocImage2 = searchData.data.results[1].img_sm;
+			$scope.mocImage3 = searchData.data.results[2].img_sm;
+			console.log($scope.mocImage);
+		},function failureFunction(searchData){
+			console.log(searchData.data.results);
+		}
+	).finally(function () {
+      $scope.loading = false;
+    });
+	}
+
+	$scope.register = function(){
+		$http.post(apiPath + '/register', {
+			fullname: $scope.fullname,
+			username: $scope.username,
+			password: $scope.password,
+			password2: $scope.password2,
+			email: $scope.email
+		}).then(function successCallback(response){
+			console.log(response);
+			if(response.data.message == 'added'){
+				$cookies.put('token', response.data.token);
+				$cookies.put('username', $scope.username);
+				$location.path('/search');
+				$rootScope.loggedIn = true;
+				console.log(response.data);
+			}
+		},function errorCallback(response){
+			console.log('error');
+			console.log(response);
+		});
+	};
+
+
+});
+
 legoApp.config(function($routeProvider){
 	$routeProvider.when('/',{
 		templateUrl: 'views/main.html',
-		controller: 'mainController'
+		controller: 'homeController'
 	})
 	.when('/login',{
 		templateUrl: 'views/login.html',

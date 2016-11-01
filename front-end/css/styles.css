@@ -123,7 +123,140 @@ body .sort-buttons {
   margin-left: 200px;
 }
 
-/* line 110, ../compass/sass/styles.scss */
+/* page specific animations ------------------------ */
+/* home -------------------------- */
+/* line 124, ../compass/sass/styles.scss */
+.page-other.ng-enter {
+  z-index: 100;
+  -webkit-animation: fadeInRight 1s both ease;
+  -moz-animation: fadeInRight 1s both ease;
+  animation: fadeInRight 1s both ease;
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* slide in from the right */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@-moz-keyframes slideInRight {
+  from {
+    -moz-transform: translateX(100%);
+  }
+  to {
+    -moz-transform: translateX(0);
+  }
+}
+@-webkit-keyframes slideInRight {
+  from {
+    -webkit-transform: translateX(100%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+  }
+}
+/* slide in from the bottom */
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@-moz-keyframes slideInUp {
+  from {
+    -moz-transform: translateY(100%);
+  }
+  to {
+    -moz-transform: translateY(0);
+  }
+}
+@-webkit-keyframes slideInUp {
+  from {
+    -webkit-transform: translateY(100%);
+  }
+  to {
+    -webkit-transform: translateY(0);
+  }
+}
+/* slide in from the bottom */
+@keyframes slideOutLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@-moz-keyframes slideOutLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@-webkit-keyframes slideOutLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+/* line 202, ../compass/sass/styles.scss */
+.animate-enter,
+.animate-leave {
+  -webkit-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  -moz-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  -ms-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  -o-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  position: relative;
+  display: block;
+}
+
+/* line 214, ../compass/sass/styles.scss */
+.animate-enter.animate-enter-active,
+.animate-leave {
+  opacity: 1;
+  top: 0;
+  height: 30px;
+}
+
+/* line 221, ../compass/sass/styles.scss */
+.animate-leave.animate-leave-active,
+.animate-enter {
+  opacity: 0;
+  top: -50px;
+  height: 0px;
+}
+
+/* line 230, ../compass/sass/styles.scss */
 #loader {
   position: absolute;
   top: 50%;
@@ -135,7 +268,7 @@ body .sort-buttons {
   background-color: white;
 }
 
-/* line 121, ../compass/sass/styles.scss */
+/* line 241, ../compass/sass/styles.scss */
 #hill {
   position: absolute;
   width: 7.1em;
@@ -150,7 +283,7 @@ body .sort-buttons {
   transform: rotate(45deg);
 }
 
-/* line 135, ../compass/sass/styles.scss */
+/* line 255, ../compass/sass/styles.scss */
 #hill:after {
   content: '';
   position: absolute;
@@ -160,7 +293,7 @@ body .sort-buttons {
   background-color: white;
 }
 
-/* line 144, ../compass/sass/styles.scss */
+/* line 264, ../compass/sass/styles.scss */
 #box {
   position: absolute;
   left: 0;
