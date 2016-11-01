@@ -13,12 +13,16 @@
 		    <input ng-model="searchText" placeholder="Search" class="search-bar">
 		</div>
 		<div dir-paginate="part in totalPartsInventory | filter:searchText | orderBy : sortKey : reverse | itemsPerPage: 48" class="pure-u-1-6 part-pic">
-			<img ng-src="{{part.part_img_url}}">
-			<p><b>Part Id:</b> {{part.part_id}}</p>
-			<p><b>Part Quantity:</b> {{part.qty}}</p>
-			<p><b>Part Name:</b> {{part.part_name}}</p>
-			<p><b>Part Color:</b> {{part.color_name}}</p>
-			<p><b>Part Element Id:</b> {{part.element_id}}</p>
+			<div class="part-image-container">
+				<img ng-src="{{part.part_img_url}}">
+			</div>
+			<div class="part-info">
+				<p><b>Part Id:</b> {{part.part_id}}</p>
+				<p><b>Part Quantity:</b> {{part.qty}}</p>
+				<p><b>Part Name:</b> {{part.part_name}}</p>
+				<p><b>Part Color:</b> {{part.color_name}}</p>
+				<p><b>Part Element Id:</b> {{part.element_id}}</p>
+			</div>
 		</div>
 
 		<div class="text-center">

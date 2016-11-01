@@ -68,11 +68,37 @@ body{
 		max-height: 300px;
 		margin: 10px;
 	}
+
 	.part-pic{
-		img{
-			max-width: 150px;
+		width: 175px;
+		height: 425px;
+		border-radius: 5px;
+		border: 1px solid #cecece;
+		margin: 5px;
+		// box-shadow: 5px 5px 5px #888888;
+		background-color: rgba(206, 206, 206, .7);
+		.part-image-container{
+			text-align: center;
+			margin: auto;
+			padding-top: 10px;
+			width: 173px;
+			height: 175px;
 			overflow: hidden;
+			background-color: #fff;
+			border-radius: 5px 5px 0px 0px;
+			position: relative;
+			img{
+				max-width: 150px;
+				overflow: hidden;
+			}
 		}
+		.part-info{
+				p{
+					line-height: 18px;
+					text-align: center;
+					margin: 10px;
+				}
+			}
 	}
 	.search-button{
 		margin-left: 10px;

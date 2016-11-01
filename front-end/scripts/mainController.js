@@ -31,7 +31,7 @@ legoApp.controller('mainController', function($scope, $rootScope, $route, $http,
 				}
 			} for (var j = 0; j < searchData.data.results.length; j++){
 				var setId = searchData.data.results[j].set_id;
-				searchData.data.results[j].set_id = setId.slice(0, -2);
+				searchData.data.results[j].tset_id = setId.slice(0, -2);
 				// console.log($scope.truncatedSetId);
 				$scope.newLegoArray = searchData.data.results;
 			}
@@ -137,6 +137,11 @@ legoApp.controller('mainController', function($scope, $rootScope, $route, $http,
 				$scope.username = response.data.username;
 				$scope.email = response.data.email;
 				$scope.sets = response.data.sets;
+				for (var j = 0; j < response.data.sets.length; j++){
+					var setId = response.data.sets[j].set_id;
+					response.data.sets[j].tset_id = setId.slice(0, -2);
+					$scope.sets = response.data.sets;
+				}
 			}
 		}, function errorCallback(response){
 			console.log(response.status);

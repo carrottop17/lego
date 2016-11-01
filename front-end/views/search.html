@@ -38,8 +38,8 @@
 			<div class="info-button-container">
 				<div class="set-info-buttons">
 					<button class="button-success pure-button" ng-click="addToCollection(lego); getLegoPartsSearch(lego.set_id); show=true">Add</button>
-					<a href="#/setparts"><button class="button-secondary pure-button" ng-click='Data.Set_id = lego.set_id'>Parts List</button></a>
-					<a ng-href="{{instructionsURL}}{{lego.set_id}}" target="_blank"><button class="button-secondary pure-button">Instructions</button></a>
+					<a href="#/setparts"><button class="button-secondary pure-button" ng-click='Data.Set_id = lego.set_id'>Parts</button></a>
+					<a ng-href="{{instructionsURL}}{{lego.tset_id}}" target="_blank"><button class="button-warning pure-button">Instructions</button></a>
 				</div>
 				<div class="set-info">
 					<p><b>Description: </b>{{lego.descr}}</p>

@@ -76,15 +76,42 @@ body .moc-image {
   margin: 10px;
 }
 /* line 72, ../compass/sass/styles.scss */
-body .part-pic img {
+body .part-pic {
+  width: 175px;
+  height: 425px;
+  border-radius: 5px;
+  border: 1px solid #cecece;
+  margin: 5px;
+  background-color: rgba(206, 206, 206, 0.7);
+}
+/* line 80, ../compass/sass/styles.scss */
+body .part-pic .part-image-container {
+  text-align: center;
+  margin: auto;
+  padding-top: 10px;
+  width: 173px;
+  height: 175px;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 5px 5px 0px 0px;
+  position: relative;
+}
+/* line 90, ../compass/sass/styles.scss */
+body .part-pic .part-image-container img {
   max-width: 150px;
   overflow: hidden;
 }
-/* line 77, ../compass/sass/styles.scss */
+/* line 96, ../compass/sass/styles.scss */
+body .part-pic .part-info p {
+  line-height: 18px;
+  text-align: center;
+  margin: 10px;
+}
+/* line 103, ../compass/sass/styles.scss */
 body .search-button {
   margin-left: 10px;
 }
-/* line 80, ../compass/sass/styles.scss */
+/* line 106, ../compass/sass/styles.scss */
 body .button-success,
 body .button-error,
 body .button-warning,
@@ -93,39 +120,39 @@ body .button-secondary {
   border-radius: 5px;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
-/* line 88, ../compass/sass/styles.scss */
+/* line 114, ../compass/sass/styles.scss */
 body .button-success {
   background: #1cb841;
   /* this is a green */
 }
-/* line 91, ../compass/sass/styles.scss */
+/* line 117, ../compass/sass/styles.scss */
 body .button-warning {
   background: #df7514;
   /* this is an orange */
 }
-/* line 94, ../compass/sass/styles.scss */
+/* line 120, ../compass/sass/styles.scss */
 body .button-error {
   background: #d01012;
   /* this is a maroon */
 }
-/* line 97, ../compass/sass/styles.scss */
+/* line 123, ../compass/sass/styles.scss */
 body .button-secondary {
   background: #42b8dd;
   /* this is a light blue */
 }
-/* line 100, ../compass/sass/styles.scss */
+/* line 126, ../compass/sass/styles.scss */
 body .sort-buttons {
   margin-bottom: 10px;
 }
 
-/* line 105, ../compass/sass/styles.scss */
+/* line 131, ../compass/sass/styles.scss */
 #views {
   margin-left: 200px;
 }
 
 /* page specific animations ------------------------ */
 /* home -------------------------- */
-/* line 124, ../compass/sass/styles.scss */
+/* line 150, ../compass/sass/styles.scss */
 .page-other.ng-enter {
   z-index: 100;
   -webkit-animation: fadeInRight 1s both ease;
@@ -228,7 +255,7 @@ body .sort-buttons {
     transform: translateX(-50%);
   }
 }
-/* line 202, ../compass/sass/styles.scss */
+/* line 228, ../compass/sass/styles.scss */
 .animate-enter,
 .animate-leave {
   -webkit-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
@@ -240,7 +267,7 @@ body .sort-buttons {
   display: block;
 }
 
-/* line 214, ../compass/sass/styles.scss */
+/* line 240, ../compass/sass/styles.scss */
 .animate-enter.animate-enter-active,
 .animate-leave {
   opacity: 1;
@@ -248,7 +275,7 @@ body .sort-buttons {
   height: 30px;
 }
 
-/* line 221, ../compass/sass/styles.scss */
+/* line 247, ../compass/sass/styles.scss */
 .animate-leave.animate-leave-active,
 .animate-enter {
   opacity: 0;
@@ -256,7 +283,7 @@ body .sort-buttons {
   height: 0px;
 }
 
-/* line 230, ../compass/sass/styles.scss */
+/* line 256, ../compass/sass/styles.scss */
 #loader {
   position: absolute;
   top: 50%;
@@ -268,7 +295,7 @@ body .sort-buttons {
   background-color: white;
 }
 
-/* line 241, ../compass/sass/styles.scss */
+/* line 267, ../compass/sass/styles.scss */
 #hill {
   position: absolute;
   width: 7.1em;
@@ -283,7 +310,7 @@ body .sort-buttons {
   transform: rotate(45deg);
 }
 
-/* line 255, ../compass/sass/styles.scss */
+/* line 281, ../compass/sass/styles.scss */
 #hill:after {
   content: '';
   position: absolute;
@@ -293,7 +320,7 @@ body .sort-buttons {
   background-color: white;
 }
 
-/* line 264, ../compass/sass/styles.scss */
+/* line 290, ../compass/sass/styles.scss */
 #box {
   position: absolute;
   left: 0;
