@@ -19,11 +19,11 @@
 
 
 ##Overview
-Blockhead is a web app for Lego aficionados that allows users to search for Lego sets add them to their collection and in doing so add all of the parts to their collections as well.  This gives the user an inventory of not only all of their sets but all of the parts in their inventory.  This is very useful for collectors that need to know exactly what parts they have available to use for building MOCs (My Own Creations).
+Blockhead is a web app for Lego aficionados that allows users to search for Lego sets, add them to their collection, and in doing so, add all of the parts to their inventory as well.  This gives the user an inventory of not only all of their sets but all of the parts in their inventory.  This is very useful for collectors that need to know exactly what parts they have available to use for building MOCs (My Own Creations).
 
-When a new user comes to the Blockhead page they register for a new account and are then redirected to the search page.  Here users can search for Lego sets by description, set ID, theme, year produced, or number of pieces.  The results of the search come from the Rebrickable API.  Once the results populate users can sort the results by year, number of pieces or set ID.  Each listing provides information about each set along the ability to add the set to the users collection, a link to a listing of all the parts in the set, and a link to the instructions for the set.
+When a new user comes to the Blockhead page they register for a new account and are then redirected to the search page.  Here users can search for Lego sets by description, set ID, theme, year produced, or number of pieces.  The results of the search come from the Rebrickable API.  Once the results populate users can sort the results by year, number of pieces or set ID.  Each listing provides information about the set along with the ability to add the set to the users collection, a link to a listing of all the parts in the set, and a link to the instructions for the set.
 
-Once the user has added sets to their collection, they can go to their profile and see all these sets in their collection.  They can then go to their total parts inventory page which lists of the parts in their collection.  Once the user is on the total parts inventory page they can sort the parts by color, quantity, part ID or element ID.  Users can also search their parts inventory to find exactly the part they are looking for.
+Once the user has added sets to their collection, they can then go to their profile and see all these sets in their collection.  They can then go to their total parts inventory page which lists of the parts in their collection.  Once the user is on the total parts inventory page they can sort the parts by color, quantity, part ID or element ID.  Users can also search their parts inventory to find exactly the part they are looking for.
 
 ###Planning Phase
 
@@ -43,6 +43,8 @@ Trello Board after
 
 
 ###Technologies, Frameworks, and Programming Languages used
+* HTML5
+* CSS3
 * JavaScript
 * MongoDB
 	* User information, user set information, and user part information is being stored in one collection in the database
@@ -100,7 +102,7 @@ Parts Inventory Page
 ![screenshot](front-end/images/partsinventory.png)
 
 
-###[Live Demo](http://blockhead.danielbarranco.com/#/)
+##[Live Demo](http://blockhead.danielbarranco.com/#/)
 
 
 
