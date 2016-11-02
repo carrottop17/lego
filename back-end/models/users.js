@@ -19,18 +19,18 @@ var userSchema = new Schema({
 		descr: {type: String},
 		img_sm: {type: String},
 	}],
-	parts: {
-		descr: {type: String},
-		parts: [
-		{
-			color_name: {type: String},
-			element_id: {type: String},
-			part_id: {type: String},
-			part_img_url: {type: String},
-			part_name: {type: String},
-			qty: {type: String}
-		}],
-		set_id: {type: String}
+	parts: {type: String
+		// descr: {type: String},
+		// parts: [
+		// {
+		// 	color_name: {type: String},
+		// 	element_id: {type: String},
+		// 	part_id: {type: String},
+		// 	part_img_url: {type: String},
+		// 	part_name: {type: String},
+		// 	qty: {type: String}
+		// }],
+		// set_id: {type: String}
 	}
 });
 
