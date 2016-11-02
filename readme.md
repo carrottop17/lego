@@ -1,45 +1,107 @@
 
-#Devcamp.io - An interactive playground for bootcamp students: past, present, and future
-* A back-end project for DigitalCrafts that must utiilze a server side languange
-* Utilize scrum agile methodology implemented via scrum meetings and scrum board to track our progress
+#Blockhead
 
-![screenshot](html/public/images/trelloboard.png)
+* The final project for DigitalCrafts that must utiilze a server side languange and eight of the following:
+	* Use of a web framework (express, flask, etc.)
+	* Use of a relational database (MySQL, postgres, MSSQL, etc.)
+	* Use of NoSQL (mongo, couch, etc.)
+	* Use of socket.io or other web socket system
+	* Object Oriented Structure
+	* Functional Programming Structure
+	* Use of at least two modules, libraries, etc. in the chosen language
+	* Use of a front-end framework (angular, react, ember, etc.)
+	* Use of ionic, cordova, or other 3rd party mobile app engine
+	* User login must be hashed
+	* JSON web tokens
+	* CSS aggregation with SASS, LESS, or other
+	* Some new framework, library, method, etc.
+	* Integration with a single-board computer (such as an arduino or pi)
 
-#Overview
-* Devcamp.io is site where coding bootcamp students, potential students, and graduates can come to post blogs about their experiences and discuss topics in the forum
-* Users can register for an account
-* Users can upload an avatar for their account
-* Users can post blogs, follow other members and favorite blogs
-* Users can post threads and reply to threads in the forum
 
-#Technologies, Frameworks, and Programming Languages used
+##Overview
+Blockhead is a web app for Lego aficionados that allows users to search for Lego sets add them to their collection and in doing so add all of the parts to their collections as well.  This gives the user an inventory of not only all of their sets but all of the parts in their inventory.  This is very useful for collectors that need to know exactly what parts they have available to use for building MOCs (My Own Creations).
 
-##### Languages:
-HTML5, CSS3, JavaScript, Python
+When a new user comes to the Blockhead page they register for a new account and are then redirected to the search page.  Here users can search for Lego sets by description, set ID, theme, year produced, or number of pieces.  The results of the search come from the Rebrickable API.  Once the results populate users can sort the results by year, number of pieces or set ID.  Each listing provides information about each set along the ability to add the set to the users collection, a link to a listing of all the parts in the set, and a link to the instructions for the set.
 
-##### Frameworks:
-Bootstrap, Angularjs, Flask, SASS
+Once the user has added sets to their collection, they can go to their profile and see all these sets in their collection.  They can then go to their total parts inventory page which lists of the parts in their collection.  Once the user is on the total parts inventory page they can sort the parts by color, quantity, part ID or element ID.  Users can also search their parts inventory to find exactly the part they are looking for.
 
-#### Relational Database:
-MySQL
+###Planning Phase
 
-#Project Screenshots
+Planning Notes
 
-![screenshot](html/public/images/homepage.png)
+![screenshot](front-end/images/notes.png)
 
-![screenshot](html/public/images/forumview.png)
 
-![screenshot](html/public/images/blogview.png)
+Trello Board before
 
-![screenshot](html/public/images/registration.png)
+![screenshot](front-end/images/trello1.png)
 
->>>>>>> 173c63b4037bf1c9e5a2638ec919ca96e656b651
 
-###Contributors:
-Danny Arango [Github](https://github.com/TheNew000) [Website](www.dannyarango.com)
+Trello Board after
 
-Daniel Barranco [Github](https://github.com/carrottop17) [Website](www.danielbarranco.com)
+![screenshot](front-end/images/trello2.png)
 
-Brett Burdick [Github](https://github.com/BRETT-B) [Website](www.brettburdick.com)
 
-Jackson Yeager [Github](https://github.com/VolitionDevelopment) [Website](www.volition-dev.com)
+###Technologies, Frameworks, and Programming Languages used
+* JavaScript
+* MongoDB
+	* User information, user set information, and user part information is being stored in one collection in the database
+* AngularJS
+	* Used to make Blockhead a single page application.
+	* Modules used
+		* ngRoute
+		* ngAnimate
+		* ngCookies
+		* dirPagination
+* Node.js
+* Node modules:
+	* bcrypt
+		* Used to hash user passwords
+	* body-parser
+	* cookie-parser
+	* Express
+	* Mongoose
+	* rand-token
+		* Generates random user authentication tokens
+* Bootstrap
+* Pure.css
+* Sass
+
+
+###Project Screenshots
+
+Home Page 1
+
+![screenshot](front-end/images/homepage1.png)
+
+
+Home Page 2
+
+![screenshot](front-end/images/homepage2.png)
+
+
+Rgistration Page
+
+![screenshot](front-end/images/registration.png)
+
+
+Search Page
+
+![screenshot](html/public/images/search.png)
+
+
+User Profile Page
+
+![screenshot](html/public/images/profile.png)
+
+
+Parts Inventory Page
+
+![screenshot](html/public/images/partsinventory.png)
+
+
+###[Live Demo](http://blockhead.danielbarranco.com/#/)
+
+
+
+
