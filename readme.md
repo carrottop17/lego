@@ -87,17 +87,17 @@ Rgistration Page
 
 Search Page
 
-![screenshot](html/public/images/search.png)
+![screenshot](front-end/images/search.png)
 
 
 User Profile Page
 
-![screenshot](html/public/images/profile.png)
+![screenshot](front-end/images/profile.png)
 
 
 Parts Inventory Page
 
-![screenshot](html/public/images/partsinventory.png)
+![screenshot](front-end/images/partsinventory.png)
 
 
 ###[Live Demo](http://blockhead.danielbarranco.com/#/)
