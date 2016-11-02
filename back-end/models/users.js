@@ -19,8 +19,8 @@ var userSchema = new Schema({
 		descr: {type: String},
 		img_sm: {type: String},
 	}],
-	parts: {type: String
-		// descr: {type: String},
+	parts: {
+		descr: {type: String},
 		// parts: [
 		// {
 		// 	color_name: {type: String},
@@ -30,7 +30,7 @@ var userSchema = new Schema({
 		// 	part_name: {type: String},
 		// 	qty: {type: String}
 		// }],
-		// set_id: {type: String}
+		set_id: {type: String}
 	}
 });
 
