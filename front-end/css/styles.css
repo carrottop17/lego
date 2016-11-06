@@ -4,17 +4,22 @@ body {
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-bottom: 20px;
 }
-/* line 5, ../compass/sass/styles.scss */
+/* line 6, ../compass/sass/styles.scss */
+body .splash-head img {
+  max-height: 100%;
+  max-width: 100%;
+}
+/* line 11, ../compass/sass/styles.scss */
 body .sign-up-button {
   margin-top: 10px;
 }
-/* line 9, ../compass/sass/styles.scss */
+/* line 15, ../compass/sass/styles.scss */
 body .sort-buttons .search-bar {
   height: 30px;
   padding: 5px;
   border: 1px solid #cecece;
 }
-/* line 15, ../compass/sass/styles.scss */
+/* line 21, ../compass/sass/styles.scss */
 body .lego-set-info {
   width: 275px;
   border-radius: 5px;
@@ -23,7 +28,7 @@ body .lego-set-info {
   box-shadow: 5px 5px 5px #888888;
   background-color: #fed500;
 }
-/* line 22, ../compass/sass/styles.scss */
+/* line 28, ../compass/sass/styles.scss */
 body .lego-set-info .set-image-container {
   margin: auto;
   padding-top: 10px;
@@ -34,7 +39,7 @@ body .lego-set-info .set-image-container {
   border-radius: 5px 5px 0px 0px;
   position: relative;
 }
-/* line 31, ../compass/sass/styles.scss */
+/* line 37, ../compass/sass/styles.scss */
 body .lego-set-info .set-image-container .remove-button {
   margin-left: 5px;
   position: absolute;
@@ -42,7 +47,7 @@ body .lego-set-info .set-image-container .remove-button {
   top: 10px;
   z-index: 1;
 }
-/* line 38, ../compass/sass/styles.scss */
+/* line 44, ../compass/sass/styles.scss */
 body .lego-set-info .set-image-container img {
   position: absolute;
   top: 0;
@@ -56,22 +61,22 @@ body .lego-set-info .set-image-container img {
   max-height: 250px;
   overflow: hidden;
 }
-/* line 52, ../compass/sass/styles.scss */
+/* line 58, ../compass/sass/styles.scss */
 body .lego-set-info .info-button-container {
   background-color: #fed500;
 }
-/* line 54, ../compass/sass/styles.scss */
+/* line 60, ../compass/sass/styles.scss */
 body .lego-set-info .info-button-container .set-info-buttons {
   padding-top: 10px;
   text-align: center;
 }
-/* line 59, ../compass/sass/styles.scss */
+/* line 65, ../compass/sass/styles.scss */
 body .lego-set-info .info-button-container .set-info p {
   line-height: 18px;
   text-align: center;
   margin: 10px;
 }
-/* line 67, ../compass/sass/styles.scss */
+/* line 73, ../compass/sass/styles.scss */
 body .moc-image {
   border: 3px solid #fff;
   border-radius: 5px;
@@ -79,7 +84,7 @@ body .moc-image {
   max-height: 300px;
   margin: 10px;
 }
-/* line 75, ../compass/sass/styles.scss */
+/* line 81, ../compass/sass/styles.scss */
 body .part-pic {
   width: 175px;
   height: 425px;
@@ -88,7 +93,7 @@ body .part-pic {
   margin: 5px;
   background-color: rgba(206, 206, 206, 0.7);
 }
-/* line 83, ../compass/sass/styles.scss */
+/* line 89, ../compass/sass/styles.scss */
 body .part-pic .part-image-container {
   text-align: center;
   margin: auto;
@@ -100,22 +105,22 @@ body .part-pic .part-image-container {
   border-radius: 5px 5px 0px 0px;
   position: relative;
 }
-/* line 93, ../compass/sass/styles.scss */
+/* line 99, ../compass/sass/styles.scss */
 body .part-pic .part-image-container img {
   max-width: 150px;
   overflow: hidden;
 }
-/* line 99, ../compass/sass/styles.scss */
+/* line 105, ../compass/sass/styles.scss */
 body .part-pic .part-info p {
   line-height: 18px;
   text-align: center;
   margin: 10px;
 }
-/* line 106, ../compass/sass/styles.scss */
+/* line 112, ../compass/sass/styles.scss */
 body .search-button {
   margin-left: 10px;
 }
-/* line 109, ../compass/sass/styles.scss */
+/* line 115, ../compass/sass/styles.scss */
 body .button-success,
 body .button-error,
 body .button-warning,
@@ -124,39 +129,39 @@ body .button-secondary {
   border-radius: 5px;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
-/* line 117, ../compass/sass/styles.scss */
+/* line 123, ../compass/sass/styles.scss */
 body .button-success {
   background: #1cb841;
   /* this is a green */
 }
-/* line 120, ../compass/sass/styles.scss */
+/* line 126, ../compass/sass/styles.scss */
 body .button-warning {
   background: #df7514;
   /* this is an orange */
 }
-/* line 123, ../compass/sass/styles.scss */
+/* line 129, ../compass/sass/styles.scss */
 body .button-error {
   background: #d01012;
   /* this is a maroon */
 }
-/* line 126, ../compass/sass/styles.scss */
+/* line 132, ../compass/sass/styles.scss */
 body .button-secondary {
   background: #42b8dd;
   /* this is a light blue */
 }
-/* line 129, ../compass/sass/styles.scss */
+/* line 135, ../compass/sass/styles.scss */
 body .sort-buttons {
   margin-bottom: 10px;
 }
 
-/* line 134, ../compass/sass/styles.scss */
+/* line 140, ../compass/sass/styles.scss */
 #views {
   margin-left: 200px;
 }
 
 /* page specific animations ------------------------ */
 /* home -------------------------- */
-/* line 153, ../compass/sass/styles.scss */
+/* line 159, ../compass/sass/styles.scss */
 .page-other.ng-enter {
   z-index: 100;
   -webkit-animation: fadeInRight 1s both ease;
@@ -259,7 +264,7 @@ body .sort-buttons {
     transform: translateX(-50%);
   }
 }
-/* line 231, ../compass/sass/styles.scss */
+/* line 237, ../compass/sass/styles.scss */
 .animate-enter,
 .animate-leave {
   -webkit-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
@@ -271,7 +276,7 @@ body .sort-buttons {
   display: block;
 }
 
-/* line 243, ../compass/sass/styles.scss */
+/* line 249, ../compass/sass/styles.scss */
 .animate-enter.animate-enter-active,
 .animate-leave {
   opacity: 1;
@@ -279,7 +284,7 @@ body .sort-buttons {
   height: 30px;
 }
 
-/* line 250, ../compass/sass/styles.scss */
+/* line 256, ../compass/sass/styles.scss */
 .animate-leave.animate-leave-active,
 .animate-enter {
   opacity: 0;
@@ -287,7 +292,7 @@ body .sort-buttons {
   height: 0px;
 }
 
-/* line 259, ../compass/sass/styles.scss */
+/* line 265, ../compass/sass/styles.scss */
 #loader {
   position: absolute;
   top: 50%;
@@ -299,7 +304,7 @@ body .sort-buttons {
   background-color: white;
 }
 
-/* line 270, ../compass/sass/styles.scss */
+/* line 276, ../compass/sass/styles.scss */
 #hill {
   position: absolute;
   width: 7.1em;
@@ -314,7 +319,7 @@ body .sort-buttons {
   transform: rotate(45deg);
 }
 
-/* line 284, ../compass/sass/styles.scss */
+/* line 290, ../compass/sass/styles.scss */
 #hill:after {
   content: '';
   position: absolute;
@@ -324,7 +329,7 @@ body .sort-buttons {
   background-color: white;
 }
 
-/* line 293, ../compass/sass/styles.scss */
+/* line 299, ../compass/sass/styles.scss */
 #box {
   position: absolute;
   left: 0;

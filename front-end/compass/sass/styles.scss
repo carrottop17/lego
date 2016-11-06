@@ -2,6 +2,12 @@ body{
 	background-color: white;
 	font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	margin-bottom: 20px;
+  .splash-head {
+    img{
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
 	.sign-up-button{
 		margin-top: 10px;
 	}

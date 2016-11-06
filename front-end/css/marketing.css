@@ -287,3 +287,14 @@ a.pure-button-primary {
         font-size: 300%;
     }
 }
+
+@media (max-width: 48em) {
+    
+    .splash-container{
+        left: 0;
+    }
+
+    .content-wrapper{
+        left: 0;
+    }
+}
