@@ -265,6 +265,28 @@ body .sort-buttons {
   }
 }
 /* line 237, ../compass/sass/styles.scss */
+.item.ng-move,
+.item.ng-enter,
+.item.ng-leave {
+  -webkit-transition: all linear 1s;
+  transition: all linear 1s;
+}
+
+/* line 244, ../compass/sass/styles.scss */
+.item.ng-leave.ng-leave-active,
+.item.ng-move,
+.item.ng-enter {
+  opacity: 0;
+}
+
+/* line 250, ../compass/sass/styles.scss */
+.item.ng-leave,
+.item.ng-move.ng-move-active,
+.item.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+/* line 256, ../compass/sass/styles.scss */
 .animate-enter,
 .animate-leave {
   -webkit-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
@@ -276,7 +298,7 @@ body .sort-buttons {
   display: block;
 }
 
-/* line 249, ../compass/sass/styles.scss */
+/* line 268, ../compass/sass/styles.scss */
 .animate-enter.animate-enter-active,
 .animate-leave {
   opacity: 1;
@@ -284,7 +306,7 @@ body .sort-buttons {
   height: 30px;
 }
 
-/* line 256, ../compass/sass/styles.scss */
+/* line 275, ../compass/sass/styles.scss */
 .animate-leave.animate-leave-active,
 .animate-enter {
   opacity: 0;
@@ -292,7 +314,7 @@ body .sort-buttons {
   height: 0px;
 }
 
-/* line 265, ../compass/sass/styles.scss */
+/* line 284, ../compass/sass/styles.scss */
 #loader {
   position: absolute;
   top: 50%;
@@ -304,7 +326,7 @@ body .sort-buttons {
   background-color: white;
 }
 
-/* line 276, ../compass/sass/styles.scss */
+/* line 295, ../compass/sass/styles.scss */
 #hill {
   position: absolute;
   width: 7.1em;
@@ -319,7 +341,7 @@ body .sort-buttons {
   transform: rotate(45deg);
 }
 
-/* line 290, ../compass/sass/styles.scss */
+/* line 309, ../compass/sass/styles.scss */
 #hill:after {
   content: '';
   position: absolute;
@@ -329,7 +351,7 @@ body .sort-buttons {
   background-color: white;
 }
 
-/* line 299, ../compass/sass/styles.scss */
+/* line 318, ../compass/sass/styles.scss */
 #box {
   position: absolute;
   left: 0;

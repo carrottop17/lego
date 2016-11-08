@@ -30,7 +30,7 @@
 
 
 <div class="pure-g">
-		<div dir-paginate="lego in newLegoArray | orderBy : sortKey : reverse | itemsPerPage: 12" class="pure-u-1-4 lego-set-info">
+		<div dir-paginate="lego in newLegoArray | orderBy : sortKey : reverse | itemsPerPage: 12" class="pure-u-1-4 lego-set-info item">
 			<div class="set-image-container">
 				<img ng-src="{{lego.img_sm}}">
 				<button class="button-error pure-button remove-button" ng-show="show" ng-click="removeFromCollection(lego); getLegoPartsSearchRemove(lego.set_id); show=false">X</button>

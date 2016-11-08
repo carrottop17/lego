@@ -20,7 +20,7 @@
 		    <button class="button-success pure-button" ng-click="sort('-1*element_id')">Element ID</button>
 		    <input ng-model="searchText" placeholder="Search" class="search-bar">
 		</div>
-		<div dir-paginate="part in legoPartsArray | filter:searchText | orderBy : sortKey : reverse | itemsPerPage: 48" class="pure-u-1-6 part-pic">
+		<div dir-paginate="part in legoPartsArray | filter:searchText | orderBy : sortKey : reverse | itemsPerPage: 48" class="pure-u-1-6 part-pic item">
 			<div class="part-image-container">
 				<img ng-src="{{part.part_img_url}}">
 			</div>
