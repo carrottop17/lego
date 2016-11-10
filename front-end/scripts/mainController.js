@@ -1,5 +1,5 @@
 var legoApp = angular.module("legoApp", ['ngRoute', 'ngCookies', 'ngAnimate', 'angularUtils.directives.dirPagination']);
-var apiPath = "http://danielbarranco.com:3002";
+var apiPath = "http://danielbarranco:3002";
 var rebrickableURL = 'https://rebrickable.com/api/search?key=wqq5lDBA3N&format=json&type=S&query=';
 var rebrickablePartsURL = 'https://rebrickable.com/api/get_set_parts?key=wqq5lDBA3N&format=json&type=S&set=';
 var rebrickableMocURL = 'https://rebrickable.com/api/search?key=wqq5lDBA3N&format=json&type=M&query='
@@ -25,6 +25,7 @@ legoApp.controller('mainController', function($scope, $rootScope, $route, $http,
 		method: 'GET',
 		url: rebrickableURL + $scope.queryString, cache: true
 		}).then(function successFunction(searchData){
+			console.log(searchData);
 			$scope.legoArray = searchData.data.results;
 			for (var i = 0; i < searchData.data.results.length; i++){
 				if (searchData.data.results[i].kit == 1){
@@ -35,7 +36,7 @@ legoApp.controller('mainController', function($scope, $rootScope, $route, $http,
 				searchData.data.results[j].tset_id = setId.slice(0, -2);
 				// console.log($scope.truncatedSetId);
 				$scope.newLegoArray = searchData.data.results;
-			}
+			} console.log($scope.newLegoArray);
 		},function failureFunction(searchData){
 			console.log(searchData.data.results);
 		}
